@@ -14,12 +14,12 @@ const Benefits = () => {
         "Definierte Reaktionszeiten",
         "Remote-Support inklusive",
         "Regelmäßige Wartung nach Plan",
-        "Monatliche Statusberichte",
+        "Kurze Monatsberichte",
         "Transparente Kostenaufstellung"
       ],
       comparison: {
-        breakfix: "Bei Break-Fix zahlen Sie erst, wenn es weh tut. Unplanbare Kosten führen zu bösen Überraschungen.",
-        service: "Mit Paketen vermeiden Sie Ausfälle und verteilen Kosten gleichmäßig. Budget planbar, Nerven geschont."
+        breakfix: "Sie zahlen erst, wenn es weh tut. Ungeplante Kosten, längere Ausfälle, hoher Stress.",
+        service: "Gleichmäßige Kosten, weniger Störungen, planbare Betreuung, klare Zuständigkeiten. Wer kalkuliert, spart Zeit, Nerven und Geld."
       }
     },
     "proaktive-betreuung": {
@@ -33,8 +33,8 @@ const Benefits = () => {
         "Präventive Wartungsmaßnahmen"
       ],
       comparison: {
-        breakfix: "Reaktiv heißt Stillstand. Erst wenn der Server brennt, wird gehandelt.",
-        service: "Proaktiv heißt Planbarkeit und Ruhe. Wir erkennen Probleme, bevor Sie sie bemerken."
+        breakfix: "Reaktiv bedeutet Stillstand und Feuerwehrmodus.",
+        service: "Proaktiv bedeutet Ruhe, Planbarkeit und weniger Risiko."
       }
     },
     "schneller-support": {
@@ -48,8 +48,8 @@ const Benefits = () => {
         "Ein Ansprechpartner für alles"
       ],
       comparison: {
-        breakfix: "Kein Ticket-Ping-Pong. Kein stundenlanges Warten auf Rückruf.",
-        service: "Ein Ansprechpartner, klare SLAs, schnelle Lösungen. Support, wie er sein sollte."
+        breakfix: "Ticket-Ping-Pong und stundenlanges Warten auf Rückruf.",
+        service: "Ein Ansprechpartner, verbindliche Reaktionszeiten."
       }
     },
     "sicherheit-und-updates": {
@@ -57,29 +57,29 @@ const Benefits = () => {
       subtitle: "Patches, EDR, Backups – DSGVO-bewusst.",
       included: [
         "Geplante Update-Fenster",
-        "EDR-Lösung (optional)",
-        "Offsite-Backup-Konzept",
-        "Regelmäßige Wiederherstellungstests",
+        "Optional EDR",
+        "Offsite-Backups",
+        "Wiederherstellungstests",
         "DSGVO-konforme Umsetzung"
       ],
       comparison: {
-        breakfix: "Einmalige 'Sicherheitsaktionen' reichen nicht. Ohne Kontinuität entstehen Lücken.",
-        service: "Kontinuität schützt. Regelmäßige Updates und Monitoring halten Angreifer draußen."
+        breakfix: "Einmalige 'Sicherheitsaktionen' reichen nicht.",
+        service: "Kontinuität schützt vor echten Schäden."
       }
     },
     "produktivitaet-statt-stillstand": {
       title: "Produktivität statt Stillstand",
       subtitle: "Stabile Systeme. Konzentriertes Arbeiten.",
       included: [
-        "Regelmäßige Wartungstakte",
-        "Performance-Checks und -Optimierung",
-        "Bottleneck-Analyse",
+        "Wartungstakte",
+        "Performance-Checks",
+        "Bottleneck-Analysen",
         "Ausfallzeiten minimieren",
         "Arbeitsplatz-Optimierung"
       ],
       comparison: {
-        breakfix: "Jede Stunde Ausfall kostet Geld und Nerven. Ungeplante Störungen unterbrechen wichtige Arbeit.",
-        service: "Prävention rechnet sich. Stabile Systeme bedeuten konzentriertes Arbeiten ohne Unterbrechungen."
+        breakfix: "Jede Ausfallstunde kostet.",
+        service: "Prävention rechnet sich."
       }
     },
     "transparente-leistungen": {
@@ -94,7 +94,7 @@ const Benefits = () => {
       ],
       comparison: {
         breakfix: "Grauzonen führen zu Diskussionen und unklaren Rechnungen.",
-        service: "Nur ehrliche Pakete. Sie wissen genau, was Sie bekommen – und was nicht."
+        service: "Packen wir Klartext auf die Seite."
       }
     }
   };
@@ -134,7 +134,7 @@ const Benefits = () => {
     if (typeof window !== 'undefined' && window.umami) {
       window.umami.track('whatsapp_start', { location: `benefit_${slug}` });
     }
-    window.open("https://wa.me/4915565029989", "_blank");
+    window.open("https://wa.me/4915565029989?text=Hallo,%20ich%20interessiere%20mich%20für%20ein%20Service-Paket...", "_blank");
   };
 
   return (

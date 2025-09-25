@@ -27,7 +27,7 @@ const BenefitsGrid = () => {
     {
       slug: "sicherheit-und-updates",
       title: "Sicherheit & Updates",
-      description: "Patches, Backups, EDR. Alles im Blick – DSGVO-bewusst.",
+      description: "Patches, Backups, EDR. DSGVO-bewusst.",
       icon: Shield,
       gradient: "from-rose-500 to-pink-600"
     },

@@ -2,36 +2,96 @@ import { useEffect, useState } from "react";
 import { ArrowRight, MessageCircle, Phone } from "lucide-react";
 
 const Hero = () => {
+  const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [showCursor, setShowCursor] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
   
-  const fullText = "Planbare IT-Kosten. Proaktiver Support. Sicherheit für Köln & Umgebung.";
-  const typingSpeed = 50; // milliseconds per character
+  const staticText = "Planbare IT-Kosten. Proaktiver Support. Sicherheit für Köln & Umgebung: ";
+  const services = [
+    "TV-Wandmontage",
+    "Computer-Reparatur & Hilfe", 
+    "Drucker-Einrichtung",
+    "WLAN-Einrichtung & Optimierung",
+    "Netzwerk-Troubleshooting",
+    "Smart-Home-Installation",
+    "Videotürklingel-Setup",
+    "Sicherheitskameras einrichten",
+    "Heimsicherheit prüfen",
+    "Streaming-Geräte einrichten",
+    "Smart-TV-Setup", 
+    "Audio-/Video-Kalibrierung",
+    "Viren- & Malware-Entfernung",
+    "Daten-Backup & Wiederherstellung",
+    "Betriebssystem-Installation",
+    "PC-Tune-Up & Beschleunigung",
+    "E-Mail & Cloud-Konten einrichten",
+    "Smartphone & Tablet-Support",
+    "Smart-Beleuchtung konfigurieren",
+    "Smart-Thermostat-Einbau"
+  ];
+  
+  const typingSpeed = 100;
+  const deletingSpeed = 50;
+  const pauseTime = 2000;
 
   useEffect(() => {
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     if (prefersReducedMotion) {
-      // Skip animation for users who prefer reduced motion
-      setDisplayText(fullText);
+      setDisplayText("IT-Service & Support");
       setShowCursor(false);
       return;
     }
 
-    const timer = setTimeout(() => {
-      if (currentIndex < fullText.length) {
-        setDisplayText(fullText.slice(0, currentIndex + 1));
-        setCurrentIndex(currentIndex + 1);
-      } else {
-        // Hide cursor after typing is complete
-        setTimeout(() => setShowCursor(false), 1000);
-      }
-    }, typingSpeed);
+    // Track animation start
+    if (typeof window !== 'undefined' && window.umami) {
+      window.umami.track('hero_cycle_start');
+    }
 
-    return () => clearTimeout(timer);
-  }, [currentIndex, fullText]);
+    let timeout: NodeJS.Timeout;
+    const currentService = services[currentServiceIndex];
+
+    if (isPaused) {
+      return;
+    }
+
+    if (isDeleting) {
+      if (displayText.length > 0) {
+        timeout = setTimeout(() => {
+          setDisplayText(displayText.slice(0, -1));
+        }, deletingSpeed);
+      } else {
+        setIsDeleting(false);
+        setCurrentServiceIndex((prev) => (prev + 1) % services.length);
+      }
+    } else {
+      if (displayText.length < currentService.length) {
+        timeout = setTimeout(() => {
+          setDisplayText(currentService.slice(0, displayText.length + 1));
+        }, typingSpeed);
+      } else {
+        // Word complete, start deleting after pause
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, pauseTime);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [currentServiceIndex, displayText, isDeleting, services, isPaused]);
+
+  useEffect(() => {
+    if (displayText === services[currentServiceIndex] && !isDeleting) {
+      // Track word completion
+      if (typeof window !== 'undefined' && window.umami) {
+        window.umami.track('hero_cycle_word', { word: displayText });
+      }
+    }
+  }, [displayText, currentServiceIndex, isDeleting, services]);
 
   const handleConsultation = () => {
     // Track analytics event
@@ -45,7 +105,7 @@ const Hero = () => {
     if (typeof window !== 'undefined' && window.umami) {
       window.umami.track('whatsapp_start', { location: 'hero' });
     }
-    window.open("https://wa.me/4915565029989", "_blank");
+    window.open("https://wa.me/4915565029989?text=Hallo,%20ich%20interessiere%20mich%20für%20ein%20Service-Paket...", "_blank");
   };
 
   return (
@@ -65,12 +125,25 @@ const Hero = () => {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="pb-20 pt-16 lg:pb-32 lg:pt-24">
           <div className="mx-auto max-w-4xl text-center">
-            {/* Main Headline with Typewriter Effect */}
-            <h1 className="text-hero mb-8 text-foreground">
-              {displayText}
-              {showCursor && (
-                <span className="inline-block w-0.5 h-[1em] bg-accent ml-1 animate-pulse" />
-              )}
+            {/* Main Headline with Service Rotation */}
+            <h1 
+              className="text-hero mb-8 text-foreground"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              onFocus={() => setIsPaused(true)}
+              onBlur={() => setIsPaused(false)}
+            >
+              {staticText}
+              <span 
+                className="text-accent"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                {displayText}
+                {showCursor && (
+                  <span className="inline-block w-0.5 h-[1em] bg-accent ml-1 animate-pulse" />
+                )}
+              </span>
             </h1>
 
             {/* Subtitle */}
