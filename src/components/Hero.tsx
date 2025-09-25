@@ -75,7 +75,6 @@ const Hero = () => {
       return;
     }
 
-    const currentService = services[currentServiceIndex];
     let timeout: NodeJS.Timeout;
 
     if (isDeleting) {
@@ -98,6 +97,7 @@ const Hero = () => {
         }, deleteSpeed);
       }
     } else if (isTyping) {
+      const currentService = services[currentServiceIndex];
       if (displayText === currentService) {
         // When finished typing, pause then start deleting
         setIsTyping(false);
@@ -117,7 +117,7 @@ const Hero = () => {
     }
 
     return () => clearTimeout(timeout);
-  }, [displayText, isTyping, isDeleting, currentServiceIndex, prefersReducedMotion, isPaused]);
+  }, [displayText, isTyping, isDeleting, currentServiceIndex, services, prefersReducedMotion, isPaused]);
 
   const handleConsultation = () => {
     // Track analytics event
