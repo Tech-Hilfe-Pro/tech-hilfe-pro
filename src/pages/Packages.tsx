@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Check, ArrowLeft, MessageCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhatsAppIcon from "@/assets/whatsapp.svg";
 
 const Packages = () => {
   const handleConsultation = () => {
@@ -35,7 +36,7 @@ const Packages = () => {
             className="btn-whatsapp px-4"
             aria-label="WhatsApp"
           >
-            <MessageCircle className="h-5 w-5" />
+            <img src={WhatsAppIcon} alt="WhatsApp" className="h-5 w-5" />
           </button>
         </div>
       </div>
@@ -207,7 +208,7 @@ const Packages = () => {
                       className="btn-whatsapp w-full justify-center"
                       aria-label="Chat auf WhatsApp starten"
                     >
-                      <MessageCircle className="h-4 w-4" />
+                      <img src={WhatsAppIcon} alt="WhatsApp" className="h-4 w-4" />
                       WhatsApp Chat
                     </button>
                   </div>

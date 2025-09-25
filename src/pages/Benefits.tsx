@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle, MessageCircle, X } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhatsAppIcon from "@/assets/whatsapp.svg";
 
 const Benefits = () => {
   const { slug } = useParams();
@@ -155,7 +156,7 @@ const Benefits = () => {
             className="btn-whatsapp px-4"
             aria-label="WhatsApp"
           >
-            <MessageCircle className="h-5 w-5" />
+            <img src={WhatsAppIcon} alt="WhatsApp" className="h-5 w-5" />
           </button>
         </div>
       </div>
@@ -245,7 +246,7 @@ const Benefits = () => {
                       className="btn-whatsapp w-full justify-center"
                       aria-label="Chat auf WhatsApp starten"
                     >
-                      <MessageCircle className="h-4 w-4" />
+                      <img src={WhatsAppIcon} alt="WhatsApp" className="h-4 w-4" />
                       WhatsApp Chat
                     </button>
                   </div>

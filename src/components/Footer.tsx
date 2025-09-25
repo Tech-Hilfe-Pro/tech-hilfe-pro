@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { MessageCircle, Phone, Mail, MapPin } from "lucide-react";
+import WhatsAppIcon from "@/assets/whatsapp.svg";
 
 const Footer = () => {
   const handleWhatsApp = () => {
     if (typeof window !== 'undefined' && window.umami) {
       window.umami.track('whatsapp_start', { location: 'footer' });
     }
-    window.open("https://wa.me/4915565029989", "_blank");
+    window.open("https://wa.me/4915565029989?text=Hallo,%20ich%20interessiere%20mich%20für%20ein%20Service-Paket...", "_blank");
   };
 
   const handleConsultation = () => {
@@ -39,7 +40,7 @@ const Footer = () => {
                 className="btn-whatsapp"
                 aria-label="Chat auf WhatsApp starten"
               >
-                <MessageCircle className="h-5 w-5" />
+                <img src={WhatsAppIcon} alt="WhatsApp" className="h-5 w-5" />
                 WhatsApp Support starten
               </button>
             </div>

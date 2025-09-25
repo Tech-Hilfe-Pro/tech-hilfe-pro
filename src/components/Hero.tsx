@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
+import WhatsAppIcon from "@/assets/whatsapp.svg";
 
 const Hero = () => {
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
@@ -168,7 +169,7 @@ const Hero = () => {
                 className="btn-secondary group min-h-[48px]"
                 aria-label="WhatsApp Support starten"
               >
-                <MessageCircle className="mr-2 h-5 w-5" />
+                <img src={WhatsAppIcon} alt="WhatsApp" className="mr-2 h-5 w-5" />
                 WhatsApp Support starten
               </button>
             </div>

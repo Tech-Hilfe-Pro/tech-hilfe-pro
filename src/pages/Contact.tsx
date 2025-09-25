@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, MessageCircle, Send, CheckCircle, AlertCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhatsAppIcon from "@/assets/whatsapp.svg";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -256,7 +257,7 @@ const Contact = () => {
                     className="btn-whatsapp"
                     aria-label="Chat auf WhatsApp starten"
                   >
-                    <MessageCircle className="h-4 w-4" />
+                    <img src={WhatsAppIcon} alt="WhatsApp" className="h-4 w-4" />
                     WhatsApp Chat starten
                   </button>
                 </div>
@@ -297,8 +298,9 @@ const Contact = () => {
                     </p>
                     <button
                       onClick={handleWhatsApp}
-                      className="bg-white text-accent px-4 py-2 rounded-lg font-medium hover:bg-neutral-50 transition-colors"
+                      className="bg-white text-accent px-4 py-2 rounded-lg font-medium hover:bg-neutral-50 transition-colors flex items-center gap-2"
                     >
+                      <img src={WhatsAppIcon} alt="WhatsApp" className="h-4 w-4" />
                       Chat starten
                     </button>
                   </div>
