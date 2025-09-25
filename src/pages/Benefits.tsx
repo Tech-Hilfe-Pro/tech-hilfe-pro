@@ -1,5 +1,6 @@
+import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, CheckCircle, MessageCircle, X } from "lucide-react";
+import { ArrowLeft, CheckCircle, ChevronRight, X } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppIcon from "@/assets/whatsapp.svg";
@@ -8,99 +9,67 @@ const Benefits = () => {
   const { slug } = useParams();
 
   const benefitData = {
+    "lokaler-support": {
+      title: "Lokaler Support – Köln & Umgebung",
+      subtitle: "Schnell vor Ort, persönlich erreichbar, pragmatisch gelöst.",
+      metaTitle: "Lokaler IT-Support in Köln – schnell vor Ort | Tech Hilfe Pro",
+      metaDescription: "Schnelle Hilfe in Köln & Umgebung: fester Ansprechpartner, kurze Anfahrt, WhatsApp-Direktkontakt. Vor Ort, telefonisch oder per Fernwartung.",
+      description: "Unsere Nähe macht den Unterschied. Wenn Sie in Köln oder Umgebung Hilfe brauchen, sind wir schnell vor Ort – ohne Callcenter-Schleifen. Lokaler Support heißt: feste Ansprechpartner, kurze Wege, klare Absprachen. Ob Privatkunde in Nippes oder Home-Office in Ehrenfeld – wir sind meist in wenigen Stunden bei Ihnen. Viele Anliegen lösen wir bereits vorher per Fernwartung, damit Vor-Ort-Termine kurz und effizient bleiben. Break-Fix führt oft zu Panikaktionen und teuren Ad-hoc-Einsätzen. Wir setzen dagegen auf Partnerschaft: direkter Draht per WhatsApp, schnelle Einordnung, Lösungsvorschlag, Termin nach Bedarf. So kombinieren wir das Beste aus zwei Welten: die Nähe eines lokalen Technikers und die Geschwindigkeit moderner Remote-Tools. Ergebnis: weniger Ausfälle, weniger Stress, planbare Kosten.",
+      included: [
+        "Direkter Kontakt (Telefon/WhatsApp), klare Zeitfenster",
+        "Priorisierte Vor-Ort-Termine in Köln & Umgebung",
+        "Vorab-Check per Fernwartung zur Minimierung der Einsatzzeit",
+        "Dokumentation der Lösung für spätere Nachfragen"
+      ],
+      example: "Drucker streikt vor einem Kundentermin (Sülz). Diagnose remote in 30 Min., Ersatztoner mitgebracht, Vor-Ort-Fix in 20 Min. Meeting fand pünktlich statt."
+    },
+    "schnelle-reaktion": {
+      title: "Schnelle Reaktion – meist am selben Tag",
+      subtitle: "Ohne Hotline-Hürden. Remote in 1–2 Stunden, Vor-Ort nach Bedarf.",
+      metaTitle: "Schnelle IT-Reaktion – meist am selben Tag | Tech Hilfe Pro",
+      metaDescription: "Reaktionszeit, die sich rechnet: Remote oft in 1–2 Stunden, Vor-Ort nach Bedarf. Ohne Hotline-Hürden, mit klarer Priorisierung.",
+      description: "In der IT zählt jede Stunde. Unser Versprechen: Wir reagieren in den meisten Fällen noch am selben Tag – remote oft in 1–2 Stunden. Der Weg dahin ist schlank: Anfragen landen ohne Umwege beim richtigen Ansprechpartner; Monitoring und feste Wartungsfenster verhindern vieles im Vorfeld. Was bleibt, lösen wir pragmatisch – telefonisch, per Fernwartung oder vor Ort. Im Gegensatz zum klassischen Break-Fix, bei dem Reaktionszeiten erst starten, wenn jemand verfügbar ist, begreifen wir Support als kontinuierliche Betreuung. Das bedeutet: kurze Wege, klare Verantwortung, verbindliche Absprachen. Ergebnis: weniger Wartezeit, weniger Ausfall, mehr Ruhe im Alltag. Selbst kleine Anliegen nehmen wir ernst, damit aus 'kurz nervig' kein 'richtig teuer' wird.",
+      included: [
+        "Schnelle Remote-Slots (werktags), klare Reaktionsfenster",
+        "Direkter Draht per Telefon & WhatsApp",
+        "Eskalation auf Vor-Ort nur bei echtem Bedarf",
+        "Protokoll der Schritte zur Nachvollziehbarkeit"
+      ],
+      example: "WLAN bricht vor Videocall weg (Ehrenfeld). Kanalwechsel + Repeater-Platzierung remote in 45 Min. Stabiler Call, keine Zusatztermine nötig."
+    },
     "planbare-kosten": {
-      title: "Planbare IT-Kosten ohne Überraschungen",
-      subtitle: "Feste Monatsraten. Klare Leistungen.",
+      title: "Planbare Kosten – feste Monatsraten",
+      subtitle: "Kalkulierbar statt überraschend. Klar, fair, inkl. MwSt.",
+      metaTitle: "Planbare IT-Kosten – feste Monatsrate | Tech Hilfe Pro",
+      metaDescription: "Monatlich kalkulierbar statt Überraschungen. 19 €/Monat inkl. MwSt., 15 % Rabatt jährlich. Klarer Leistungsumfang, transparente Grenzen.",
+      description: "Unerwartete Rechnungen sind der größte Frust in der IT. Mit festen Monatsraten schaffen wir Klarheit: Sie wissen genau, was anfällt – unabhängig davon, ob die Lösung 10 Minuten oder 2 Stunden braucht. Anders als beim Break-Fix addieren sich keine unplanbaren Stunden und Anfahrten; stattdessen investieren Sie in Stabilität. Das Paketmodell motiviert uns, Probleme nachhaltig zu beheben und Störungen zu vermeiden. Regelmäßige Updates, Checks und klare Kommunikation gehören dazu. Bei jährlicher Zahlung erhalten Sie 15 % Rabatt. Planbare Kosten sind mehr als Zahlen: Sie bedeuten Ruhe und Fokus auf das, was zählt – Ihren Alltag oder Ihr Geschäft. Transparenz ist Pflicht: Was enthalten ist, sagen wir; was optional ist, ebenso.",
       included: [
-        "Definierte Reaktionszeiten",
-        "Remote-Support inklusive",
-        "Regelmäßige Wartung nach Plan",
-        "Kurze Monatsberichte",
-        "Transparente Kostenaufstellung"
+        "Feste Monatsrate (Privat), inkl. MwSt.",
+        "Remote-Support werktags, Telefon/WhatsApp inklusive",
+        "Regelmäßige Updates & Patch-Management",
+        "Monatlicher System-Check mit kurzer Auswertung"
       ],
-      comparison: {
-        breakfix: "Sie zahlen erst, wenn es weh tut. Ungeplante Kosten, längere Ausfälle, hoher Stress.",
-        service: "Gleichmäßige Kosten, weniger Störungen, planbare Betreuung, klare Zuständigkeiten. Wer kalkuliert, spart Zeit, Nerven und Geld."
-      }
-    },
-    "proaktive-betreuung": {
-      title: "Proaktive Betreuung statt Störungstheater", 
-      subtitle: "Probleme vermeiden, bevor sie entstehen.",
-      included: [
-        "Kontinuierliches System-Monitoring",
-        "Automatisches Patch-Management",
-        "Frühwarnungen bei Problemen",
-        "Kapazitätsplanung und -überwachung",
-        "Präventive Wartungsmaßnahmen"
-      ],
-      comparison: {
-        breakfix: "Reaktiv bedeutet Stillstand und Feuerwehrmodus.",
-        service: "Proaktiv bedeutet Ruhe, Planbarkeit und weniger Risiko."
-      }
-    },
-    "schneller-support": {
-      title: "Schneller Support – remote oder vor Ort",
-      subtitle: "Kurze Wege, klare Antworten.", 
-      included: [
-        "Hotline ohne Warteschleife",
-        "WhatsApp für schnelle Anfragen",
-        "Sicherer Remotezugriff",
-        "Vor-Ort-Service in Köln",
-        "Ein Ansprechpartner für alles"
-      ],
-      comparison: {
-        breakfix: "Ticket-Ping-Pong und stundenlanges Warten auf Rückruf.",
-        service: "Ein Ansprechpartner, verbindliche Reaktionszeiten."
-      }
-    },
-    "sicherheit-und-updates": {
-      title: "Sicherheit & Updates im Griff",
-      subtitle: "Patches, EDR, Backups – DSGVO-bewusst.",
-      included: [
-        "Geplante Update-Fenster",
-        "Optional EDR",
-        "Offsite-Backups",
-        "Wiederherstellungstests",
-        "DSGVO-konforme Umsetzung"
-      ],
-      comparison: {
-        breakfix: "Einmalige 'Sicherheitsaktionen' reichen nicht.",
-        service: "Kontinuität schützt vor echten Schäden."
-      }
-    },
-    "produktivitaet-statt-stillstand": {
-      title: "Produktivität statt Stillstand",
-      subtitle: "Stabile Systeme. Konzentriertes Arbeiten.",
-      included: [
-        "Wartungstakte",
-        "Performance-Checks",
-        "Bottleneck-Analysen",
-        "Ausfallzeiten minimieren",
-        "Arbeitsplatz-Optimierung"
-      ],
-      comparison: {
-        breakfix: "Jede Ausfallstunde kostet.",
-        service: "Prävention rechnet sich."
-      }
-    },
-    "transparente-leistungen": {
-      title: "Transparente Leistungen, klare Grenzen",
-      subtitle: "Was drin ist – und was nicht.",
-      included: [
-        "Detaillierte Leistungsbeschreibung",
-        "Klare Reaktionszeiten",
-        "Add-ons transparent benannt",
-        "Ausschlüsse fair kommuniziert",
-        "Keine versteckten Kosten"
-      ],
-      comparison: {
-        breakfix: "Grauzonen führen zu Diskussionen und unklaren Rechnungen.",
-        service: "Packen wir Klartext auf die Seite."
-      }
+      example: "Privatkunde mit Home-Office (Nippes). Drei kleinere Themen im Monat gelöst, keine Zusatzrechnung. Ergebnis: stabile Workflows, planbarer Aufwand."
     }
   };
 
   const benefit = slug ? benefitData[slug as keyof typeof benefitData] : null;
+
+  // Set SEO meta tags
+  React.useEffect(() => {
+    if (benefit) {
+      document.title = benefit.metaTitle || benefit.title;
+      
+      // Update meta description
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.setAttribute('name', 'description');
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.setAttribute('content', benefit.metaDescription || benefit.subtitle);
+    }
+  }, [benefit]);
 
   if (!benefit) {
     return (
@@ -127,13 +96,15 @@ const Benefits = () => {
 
   const handleConsultation = () => {
     if (typeof window !== 'undefined' && window.umami) {
-      window.umami.track('cta_consultation', { location: `benefit_${slug}` });
+      window.umami.track('cta_consultation', { location: 'benefit_page' });
     }
+    // Redirect to contact page
+    window.location.href = '/kontakt';
   };
 
   const handleWhatsApp = () => {
     if (typeof window !== 'undefined' && window.umami) {
-      window.umami.track('whatsapp_start', { location: `benefit_${slug}` });
+      window.umami.track('whatsapp_start', { location: 'benefit_page' });
     }
     window.open("https://wa.me/4915565029989?text=Hallo,%20ich%20interessiere%20mich%20für%20ein%20Service-Paket...", "_blank");
   };
@@ -161,107 +132,113 @@ const Benefits = () => {
         </div>
       </div>
 
-      <main className="pb-20 md:pb-0">
-        {/* Breadcrumb */}
-        <div className="bg-neutral-50 border-b border-border">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <nav className="flex items-center gap-2 text-sm">
-              <Link to="/" className="text-accent hover:underline">
-                Startseite
-              </Link>
-              <span className="text-muted-foreground">/</span>
-              <span className="text-foreground">Vorteile</span>
-              <span className="text-muted-foreground">/</span>
-              <span className="text-muted-foreground">{benefit.title}</span>
+      <div className="lg:flex">
+        {/* Main Content */}
+        <main className="flex-1 lg:mr-80 pb-20 lg:pb-0">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8">
+            {/* Breadcrumb */}
+            <nav className="flex mb-8" aria-label="Breadcrumb">
+              <ol className="inline-flex items-center space-x-1 md:space-x-3">
+                <li className="inline-flex items-center">
+                  <Link to="/" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary">
+                    Startseite
+                  </Link>
+                </li>
+                <li>
+                  <div className="flex items-center">
+                    <ChevronRight className="w-4 h-4 text-muted-foreground mx-1" />
+                    <Link to="/vorteile" className="text-sm font-medium text-muted-foreground hover:text-primary">
+                      Vorteile
+                    </Link>
+                  </div>
+                </li>
+                <li>
+                  <div className="flex items-center">
+                    <ChevronRight className="w-4 h-4 text-muted-foreground mx-1" />
+                    <span className="text-sm font-medium text-foreground">
+                      {benefit.title}
+                    </span>
+                  </div>
+                </li>
+              </ol>
             </nav>
-          </div>
-        </div>
 
-        {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-b from-white to-neutral-50">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 text-accent hover:underline mb-8"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Zurück zur Startseite
-            </Link>
-            
-            <h1 className="text-hero mb-4">{benefit.title}</h1>
-            <p className="text-subtitle">{benefit.subtitle}</p>
-          </div>
-        </section>
+            {/* Hero Section */}
+            <div className="text-center mb-12">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                {benefit.title}
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                {benefit.subtitle}
+              </p>
+            </div>
 
-        {/* Content */}
-        <section className="py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-3 gap-12">
-              <div className="lg:col-span-2 space-y-12">
-                {/* Was ist inkludiert */}
-                <div>
-                  <h2 className="text-2xl font-semibold mb-6">Was ist inkludiert?</h2>
-                  <ul className="space-y-4">
-                    {benefit.included.map((item, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <CheckCircle className="h-6 w-6 text-success flex-shrink-0 mt-0.5" />
-                        <span className="text-foreground">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            {/* Main Text */}
+            <div className="prose prose-lg max-w-none mb-12">
+              <p className="text-muted-foreground leading-relaxed">
+                {benefit.description}
+              </p>
+            </div>
 
-                {/* Vergleich */}
-                <div>
-                  <h2 className="text-2xl font-semibold mb-6">Break-Fix vs. Service-Paket</h2>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-red-50 border border-red-200 rounded-xl p-6">
-                      <h3 className="font-semibold text-red-800 mb-3">❌ Break-Fix Ansatz</h3>
-                      <p className="text-red-700 text-sm leading-relaxed">{benefit.comparison.breakfix}</p>
-                    </div>
-                    <div className="bg-green-50 border border-green-200 rounded-xl p-6">
-                      <h3 className="font-semibold text-green-800 mb-3">✅ Service-Paket</h3>
-                      <p className="text-green-700 text-sm leading-relaxed">{benefit.comparison.service}</p>
-                    </div>
+            {/* What's Included */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-semibold text-foreground mb-6">
+                Was ist inkludiert?
+              </h2>
+              <div className="grid gap-4">
+                {benefit.included.map((item, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-muted-foreground">{item}</span>
                   </div>
-                </div>
-              </div>
-
-              {/* Sticky Sidebar - Desktop */}
-              <div className="lg:col-span-1">
-                <div className="sticky top-24 bg-white border border-border rounded-2xl p-6 shadow-sm">
-                  <h3 className="font-semibold mb-4">Jetzt starten</h3>
-                  <p className="text-sm text-muted-foreground mb-6">
-                    Lassen Sie uns über Ihre IT-Herausforderungen sprechen.
-                  </p>
-                  <div className="space-y-3">
-                    <button
-                      onClick={handleConsultation}
-                      className="btn-hero w-full"
-                    >
-                      Kostenlose Erstberatung
-                    </button>
-                    <button
-                      onClick={handleWhatsApp}
-                      className="btn-whatsapp w-full justify-center"
-                      aria-label="Chat auf WhatsApp starten"
-                    >
-                      <img src={WhatsAppIcon} alt="WhatsApp" className="h-4 w-4" />
-                      WhatsApp Chat
-                    </button>
-                  </div>
-                  
-                  <div className="mt-6 pt-6 border-t border-border text-center">
-                    <p className="text-xs text-muted-foreground">
-                      Schnelle Antwort garantiert
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
+
+            {/* Example from Cologne */}
+            <div className="mb-12 bg-blue-50 dark:bg-blue-950/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
+              <h2 className="text-2xl font-semibold text-foreground mb-4">
+                Beispiel aus Köln
+              </h2>
+              <p className="text-muted-foreground italic">
+                „{benefit.example}"
+              </p>
+            </div>
           </div>
-        </section>
-      </main>
+        </main>
+
+        {/* Sticky Sidebar - Desktop */}
+        <aside className="hidden lg:block fixed right-0 top-0 h-full w-80 bg-gray-50 dark:bg-gray-900 border-l border-border p-6 overflow-y-auto">
+          <div className="sticky top-6">
+            <h3 className="text-lg font-semibold text-foreground mb-6">
+              Bereit für professionellen IT-Support?
+            </h3>
+            
+            <div className="space-y-4">
+              <button
+                onClick={handleConsultation}
+                className="w-full bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+              >
+                Kostenlose Erstberatung
+              </button>
+              
+              <button
+                onClick={handleWhatsApp}
+                className="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors flex items-center justify-center space-x-2"
+              >
+                <img src={WhatsAppIcon} alt="WhatsApp" className="w-5 h-5" />
+                <span>WhatsApp Support starten</span>
+              </button>
+            </div>
+
+            <div className="mt-8 text-sm text-muted-foreground">
+              <p>✓ Kostenlose Erstberatung</p>
+              <p>✓ Transparente Preise</p>
+              <p>✓ Schnelle Reaktionszeiten</p>
+            </div>
+          </div>
+        </aside>
+      </div>
 
       <Footer />
     </div>

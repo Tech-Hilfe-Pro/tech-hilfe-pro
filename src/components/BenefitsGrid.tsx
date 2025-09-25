@@ -4,46 +4,28 @@ import { ArrowRight, Euro, Shield, Zap, Clock, TrendingUp, Eye } from "lucide-re
 const BenefitsGrid = () => {
   const benefits = [
     {
-      slug: "planbare-kosten",
-      title: "Planbare Kosten",
-      description: "Schluss mit Überraschungen. Feste Monatsrate statt unklarer Stunden.",
-      icon: Euro,
-      gradient: "from-emerald-500 to-teal-600"
-    },
-    {
-      slug: "proaktive-betreuung", 
-      title: "Proaktive Betreuung",
-      description: "Wir warten und überwachen, bevor Probleme entstehen.",
+      slug: "lokaler-support",
+      title: "Lokaler Support",
+      subtitle: "Köln & Umgebung. Schnell vor Ort, fester Ansprechpartner, WhatsApp-Direktkontakt.",
+      teaser: "Wir kommen aus Köln, kennen Wege, Zeiten und typische Setups. Ob Nippes, Ehrenfeld oder Sülz: kurze Anfahrt, klare Absprachen, verlässlich vor Ort. Viele Anliegen lösen wir schon vorher per Fernwartung, damit der Termin maximal kurz bleibt.",
       icon: Shield,
       gradient: "from-blue-500 to-cyan-600"
     },
     {
-      slug: "schneller-support",
-      title: "Schneller Support", 
-      description: "Telefon, Remote oder vor Ort. Ohne Warteschleife.",
+      slug: "schnelle-reaktion",
+      title: "Schnelle Reaktion",
+      subtitle: "Meist am selben Tag. Remote oft in 1–2 Stunden. Ohne Hotline-Hürden.",
+      teaser: "Anfragen landen ohne Warteschleife beim richtigen Ansprechpartner. Monitoring und feste Wartungszyklen verhindern vieles im Vorfeld. Was bleibt, lösen wir pragmatisch: remote, telefonisch oder bei Bedarf vor Ort.",
       icon: Zap,
       gradient: "from-violet-500 to-purple-600"
     },
     {
-      slug: "sicherheit-und-updates",
-      title: "Sicherheit & Updates",
-      description: "Patches, Backups, EDR. DSGVO-bewusst.",
-      icon: Shield,
-      gradient: "from-rose-500 to-pink-600"
-    },
-    {
-      slug: "produktivitaet-statt-stillstand",
-      title: "Produktivität statt Stillstand",
-      description: "Weniger Unterbrechungen, mehr Output.",
-      icon: TrendingUp,
-      gradient: "from-orange-500 to-red-600"
-    },
-    {
-      slug: "transparente-leistungen",
-      title: "Transparente Leistungen",
-      description: "Klare Pakete, klare Grenzen, ehrliche Beratung.",
-      icon: Eye,
-      gradient: "from-indigo-500 to-blue-600"
+      slug: "planbare-kosten",
+      title: "Planbare Kosten",
+      subtitle: "Feste Monatsrate statt Überraschungen. Klar, fair, inkl. MwSt.",
+      teaser: "Monatlich kalkulierbar, mit 15 % Rabatt bei jährlicher Zahlung. Break-Fix war gestern: Sie zahlen nicht für Feuerwehreinsätze, sondern für Stabilität und Ruhe.",
+      icon: Euro,
+      gradient: "from-emerald-500 to-teal-600"
     }
   ];
 
@@ -88,8 +70,12 @@ const BenefitsGrid = () => {
                     {benefit.title}
                   </h3>
                   
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">
+                    {benefit.subtitle}
+                  </p>
+                  
                   <p className="text-muted-foreground leading-relaxed">
-                    {benefit.description}
+                    {benefit.teaser}
                   </p>
                   
                   <div className="flex items-center text-accent font-medium group-hover:translate-x-2 transition-transform duration-300">
