@@ -32,7 +32,7 @@ const BenefitsGrid = () => {
       gradient: "from-rose-500 to-pink-600"
     },
     {
-      slug: "produktivitaet-statt-stillstand",
+      slug: "produktivitaet",
       title: "Produktivität statt Stillstand",
       description: "Weniger Unterbrechungen, mehr Output.",
       icon: TrendingUp,

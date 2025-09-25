@@ -5,16 +5,18 @@ const PackagePreview = () => {
   const packageData = {
     name: "Home",
     price: "19",
-    period: "€/Monat (inkl. MwSt.)",
+    period: "€/Monat",
     description: "Komplette IT-Betreuung für Ihr Zuhause",
     features: [
       "Unbegrenzter Remote-Support (werktags)",
       "Telefon- und WhatsApp-Support",
       "Regelmäßige Updates & Patch-Management", 
       "Monatlicher System-Gesundheitscheck",
-      "Erklärungen ohne Fachjargon"
+      "Mitglieder-Rabatt Vor Ort: 69 €/Std statt 79 €",
+      "1× jährlicher Home-Tech-Check vor Ort",
+      "Mini-Schulung pro Quartal (15 Min remote)"
     ],
-    discount: "15% Rabatt bei jährlicher Zahlung"
+    discount: "194 €/Jahr (−15 %)"
   };
 
   return (
@@ -67,9 +69,24 @@ const PackagePreview = () => {
                 ))}
               </ul>
               
-              <button className="btn-hero w-full mb-6">
-                Kostenlose Erstberatung
-              </button>
+              <div className="space-y-3 mb-6">
+                <button className="btn-hero w-full">
+                  Kostenlose Erstberatung
+                </button>
+                <button 
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && window.umami) {
+                      window.umami.track('whatsapp_start', { location: 'home_package_preview' });
+                    }
+                    window.open("https://wa.me/4915565029989?text=Hallo,%20ich%20interessiere%20mich%20für%20ein%20Service-Paket...", "_blank");
+                  }}
+                  className="btn-whatsapp w-full justify-center"
+                  aria-label="WhatsApp-Support starten"
+                >
+                  <img src="/src/assets/whatsapp.svg" alt="WhatsApp" className="h-4 w-4" />
+                  WhatsApp-Support starten
+                </button>
+              </div>
               
               <div className="border-t border-border pt-6">
                 <p className="text-xs text-muted-foreground mb-3 font-medium">
@@ -85,17 +102,18 @@ const PackagePreview = () => {
         
         <div className="text-center mb-8">
           <div className="max-w-md mx-auto bg-neutral-50 rounded-xl p-6 text-sm">
-            <h4 className="font-semibold mb-3 text-foreground">Preise ohne Paket</h4>
-            <div className="space-y-2 text-muted-foreground">
-              <div className="flex justify-between">
-                <span>Vor Ort:</span>
-                <span className="font-medium">79 €/Stunde</span>
+            <h4 className="font-semibold mb-3 text-foreground">HOME CARE Home — 19 €/Monat</h4>
+            <div className="space-y-2 text-muted-foreground mb-4">
+              <div className="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-medium inline-block">
+                Vor Ort 69 €/Std für Mitglieder
               </div>
-              <div className="flex justify-between">
-                <span>Remote:</span>
-                <span className="font-medium">59 €/Stunde</span>
+            </div>
+            <div className="text-xs text-muted-foreground border-t pt-3">
+              <p className="mb-2 font-medium">Ohne Vertrag?</p>
+              <div className="space-y-1">
+                <div>Vor Ort 79 €/Std • Remote 59 €/Std</div>
+                <div>Mindestabrechnung 30 Minuten</div>
               </div>
-              <p className="text-xs mt-3">Mindestabrechnung: 30 Minuten</p>
             </div>
           </div>
         </div>
@@ -103,6 +121,11 @@ const PackagePreview = () => {
         <div className="text-center">
           <Link
             to="/pakete"
+            onClick={() => {
+              if (typeof window !== 'undefined' && window.umami) {
+                window.umami.track('card_click', { card: 'pakete_teaser' });
+              }
+            }}
             className="btn-secondary group"
           >
             Pakete ansehen

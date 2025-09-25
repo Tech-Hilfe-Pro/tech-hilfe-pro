@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 import WhatsAppIcon from "@/assets/whatsapp.svg";
 
 const Hero = () => {
@@ -174,35 +175,71 @@ const Hero = () => {
               </button>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-brand-start to-brand-end flex items-center justify-center mb-4">
+            {/* Trust Indicators - erweitert mit Teasern und Links */}
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+              <Link 
+                to="/benefits/lokaler-support"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && window.umami) {
+                    window.umami.track('card_click', { benefit_slug: 'lokaler-support' });
+                  }
+                }}
+                className="flex flex-col items-center text-center group cursor-pointer p-6 rounded-xl hover:bg-neutral-50 transition-colors duration-300"
+              >
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-brand-start to-brand-end flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Phone className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Lokaler Support</h3>
-                <p className="text-sm text-muted-foreground">Köln & Umgebung</p>
-              </div>
+                <p className="text-sm text-muted-foreground mb-3">Köln & Umgebung. Schnell vor Ort, fester Ansprechpartner, WhatsApp-Direktkontakt.</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  Wir kommen aus Köln, kennen Wege, Zeiten und typische Setups. Ob Nippes, Ehrenfeld oder Sülz: kurze Anfahrt, klare Absprachen, verlässlich vor Ort. Viele Anliegen lösen wir bereits per Fernwartung, damit der Termin maximal kurz bleibt.
+                </p>
+                <span className="text-accent font-medium group-hover:underline">Mehr erfahren</span>
+              </Link>
               
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-brand-start to-brand-end flex items-center justify-center mb-4">
+              <Link 
+                to="/benefits/schnelle-reaktion"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && window.umami) {
+                    window.umami.track('card_click', { benefit_slug: 'schnelle-reaktion' });
+                  }
+                }}
+                className="flex flex-col items-center text-center group cursor-pointer p-6 rounded-xl hover:bg-neutral-50 transition-colors duration-300"
+              >
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-brand-start to-brand-end flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Schnelle Reaktion</h3>
-                <p className="text-sm text-muted-foreground">Meist am selben Tag</p>
-              </div>
+                <p className="text-sm text-muted-foreground mb-3">Meist am selben Tag. Remote oft in 1–2 Stunden.</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  Anfragen landen ohne Warteschleife beim richtigen Ansprechpartner. Monitoring und feste Wartungszyklen verhindern vieles im Vorfeld. Was bleibt, lösen wir pragmatisch – remote, telefonisch oder bei Bedarf vor Ort.
+                </p>
+                <span className="text-accent font-medium group-hover:underline">Mehr erfahren</span>
+              </Link>
               
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-brand-start to-brand-end flex items-center justify-center mb-4">
+              <Link 
+                to="/benefits/planbare-kosten"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && window.umami) {
+                    window.umami.track('card_click', { benefit_slug: 'planbare-kosten' });
+                  }
+                }}
+                className="flex flex-col items-center text-center group cursor-pointer p-6 rounded-xl hover:bg-neutral-50 transition-colors duration-300"
+              >
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-brand-start to-brand-end flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Planbare Kosten</h3>
-                <p className="text-sm text-muted-foreground">Feste Monatsraten</p>
-              </div>
+                <p className="text-sm text-muted-foreground mb-3">Feste Monatsraten statt unklarer Stunden.</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  Monatlich kalkulierbar, mit 15 % Rabatt bei jährlicher Zahlung. Kein Break-Fix-Chaos: Sie zahlen für Stabilität und Ruhe, nicht für Feuerwehreinsätze.
+                </p>
+                <span className="text-accent font-medium group-hover:underline">Mehr erfahren</span>
+              </Link>
             </div>
           </div>
         </div>
