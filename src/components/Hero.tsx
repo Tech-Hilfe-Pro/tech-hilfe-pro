@@ -1,98 +1,92 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Phone } from "lucide-react";
 import WhatsAppIcon from "@/assets/whatsapp.svg";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [showCursor, setShowCursor] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [animationStarted, setAnimationStarted] = useState(false);
+  
+  const isMobile = useIsMobile();
   
   const staticText = "Planbare IT-Kosten. Proaktiver Support. Sicherheit für Köln & Umgebung: ";
-  const services = [
-    "TV-Wandmontage",
-    "Computer-Reparatur & Hilfe", 
-    "Drucker-Einrichtung",
-    "WLAN-Einrichtung & Optimierung",
-    "Netzwerk-Troubleshooting",
+  
+  // Full service list for desktop
+  const servicesDesktop = [
+    "Computer-Reparatur & Hilfe",
+    "WLAN-Einrichtung & Optimierung", 
     "Smart-Home-Installation",
-    "Videotürklingel-Setup",
-    "Sicherheitskameras einrichten",
-    "Heimsicherheit prüfen",
-    "Streaming-Geräte einrichten",
-    "Smart-TV-Setup", 
-    "Audio-/Video-Kalibrierung",
     "Viren- & Malware-Entfernung",
     "Daten-Backup & Wiederherstellung",
-    "Betriebssystem-Installation",
-    "PC-Tune-Up & Beschleunigung",
-    "E-Mail & Cloud-Konten einrichten",
-    "Smartphone & Tablet-Support",
-    "Smart-Beleuchtung konfigurieren",
-    "Smart-Thermostat-Einbau"
+    "TV-Wandmontage",
+    "Drucker-Einrichtung",
+    "Netzwerk-Troubleshooting",
+    "Videotürklingel-Setup",
+    "Sicherheitskameras einrichten",
+    "Streaming-Geräte einrichten",
+    "Smart-TV-Setup",
+    "Audio-/Video-Kalibrierung",
+    "Betriebssystem-Installation"
   ];
   
-  const typingSpeed = 100;
-  const deletingSpeed = 50;
-  const pauseTime = 2000;
+  // Shortened service list for mobile
+  const servicesMobile = [
+    "Computer-Reparatur",
+    "WLAN-Einrichtung", 
+    "Smart-Home-Setup",
+    "Viren-Entfernung",
+    "Daten-Backup",
+    "TV-Wandmontage",
+    "Drucker-Setup",
+    "Netzwerk-Hilfe",
+    "Video-Setup",
+    "Sicherheitskameras"
+  ];
+  
+  const services = isMobile ? servicesMobile : servicesDesktop;
+  const rotationInterval = 3000;
 
   useEffect(() => {
     // Check if user prefers reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setPrefersReducedMotion(reducedMotion);
     
-    if (prefersReducedMotion) {
-      setDisplayText("IT-Service & Support");
-      setShowCursor(false);
+    if (reducedMotion) {
       return;
     }
 
-    // Track animation start
-    if (typeof window !== 'undefined' && window.umami) {
+    // Track animation start (only once)
+    if (!animationStarted && typeof window !== 'undefined' && window.umami) {
       window.umami.track('hero_cycle_start');
+      setAnimationStarted(true);
     }
-
-    let timeout: NodeJS.Timeout;
-    const currentService = services[currentServiceIndex];
-
-    if (isPaused) {
-      return;
-    }
-
-    if (isDeleting) {
-      if (displayText.length > 0) {
-        timeout = setTimeout(() => {
-          setDisplayText(displayText.slice(0, -1));
-        }, deletingSpeed);
-      } else {
-        setIsDeleting(false);
-        setCurrentServiceIndex((prev) => (prev + 1) % services.length);
-      }
-    } else {
-      if (displayText.length < currentService.length) {
-        timeout = setTimeout(() => {
-          setDisplayText(currentService.slice(0, displayText.length + 1));
-        }, typingSpeed);
-      } else {
-        // Word complete, start deleting after pause
-        timeout = setTimeout(() => {
-          setIsDeleting(true);
-        }, pauseTime);
-      }
-    }
-
-    return () => clearTimeout(timeout);
-  }, [currentServiceIndex, displayText, isDeleting, services, isPaused]);
+  }, [animationStarted]);
 
   useEffect(() => {
-    if (displayText === services[currentServiceIndex] && !isDeleting) {
-      // Track word completion
-      if (typeof window !== 'undefined' && window.umami) {
-        window.umami.track('hero_cycle_word', { word: displayText });
-      }
+    if (prefersReducedMotion || isPaused) {
+      return;
     }
-  }, [displayText, currentServiceIndex, isDeleting, services]);
+
+    const interval = setInterval(() => {
+      setIsVisible(false);
+      
+      setTimeout(() => {
+        setCurrentServiceIndex((prev) => (prev + 1) % services.length);
+        
+        // Track word change
+        if (typeof window !== 'undefined' && window.umami) {
+          window.umami.track('hero_cycle_word', { word: services[(currentServiceIndex + 1) % services.length] });
+        }
+        
+        setIsVisible(true);
+      }, 250);
+    }, rotationInterval);
+
+    return () => clearInterval(interval);
+  }, [currentServiceIndex, services, isPaused, prefersReducedMotion, rotationInterval]);
 
   const handleConsultation = () => {
     // Track analytics event
@@ -136,13 +130,21 @@ const Hero = () => {
             >
               {staticText}
               <span 
-                className="text-accent"
-                aria-live="polite"
-                aria-atomic="true"
+                className="relative inline-block text-accent"
+                style={{ minWidth: isMobile ? '200px' : '350px' }}
               >
-                {displayText}
-                {showCursor && (
-                  <span className="inline-block w-0.5 h-[1em] bg-accent ml-1 animate-pulse" />
+                {prefersReducedMotion ? (
+                  <span aria-live="polite">IT-Service & Support</span>
+                ) : (
+                  <span 
+                    className={`transition-opacity duration-500 ease-in-out ${
+                      isVisible ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    aria-live="polite"
+                    aria-atomic="true"
+                  >
+                    {services[currentServiceIndex]}
+                  </span>
                 )}
               </span>
             </h1>
