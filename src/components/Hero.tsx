@@ -151,7 +151,7 @@ const Hero = () => {
             >
               {staticText}
               <span 
-                className="text-accent"
+                className="text-accent dynamic-text-mobile"
                 aria-live="polite"
                 aria-atomic="true"
               >
