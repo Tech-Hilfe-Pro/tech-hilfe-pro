@@ -98,10 +98,7 @@ const Hero = () => {
       return;
     }
 
-    let timeout: NodeJS.Timeout;
-
-    // Cross-fade animation
-    timeout = setTimeout(() => {
+    const interval = setInterval(() => {
       setIsVisible(false);
       
       setTimeout(() => {
@@ -113,10 +110,10 @@ const Hero = () => {
         if (typeof window !== 'undefined' && window.umami) {
           window.umami.track('hero_cycle_word', { word: services[nextIndex] });
         }
-      }, 300); // Half of the transition duration
+      }, 250); // Transition duration
     }, displayInterval);
 
-    return () => clearTimeout(timeout);
+    return () => clearInterval(interval);
   }, [currentServiceIndex, services, isPaused, displayInterval, prefersReducedMotion]);
 
   const handleConsultation = () => {
@@ -151,7 +148,6 @@ const Hero = () => {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="pb-20 pt-16 lg:pb-32 lg:pt-24">
           <div className="mx-auto max-w-4xl text-center">
-            {/* Main Headline with Service Rotation */}
             <h1 
               className="text-hero mb-8 text-foreground"
               onMouseEnter={() => setIsPaused(true)}
@@ -159,32 +155,30 @@ const Hero = () => {
               onFocus={() => setIsPaused(true)}
               onBlur={() => setIsPaused(false)}
             >
-              {staticText}
+              <span className="block">
+                {staticText}
+              </span>
               <span 
-                className="text-accent inline-block text-left relative h-[1.2em] overflow-hidden"
-                style={{ minWidth: isMobile ? '200px' : '350px' }}
+                className="text-accent inline-block relative overflow-hidden"
+                style={{ 
+                  height: '1.2em',
+                  minWidth: isMobile ? '240px' : '420px',
+                  verticalAlign: 'top'
+                }}
                 aria-live="polite"
                 aria-atomic="true"
               >
                 {prefersReducedMotion ? (
-                  <span className="block">IT-Service & Support</span>
+                  <span className="block leading-none">IT-Service & Support</span>
                 ) : (
-                  <>
-                    <span 
-                      className={`block absolute top-0 left-0 transition-opacity duration-500 ease-in-out whitespace-nowrap ${
-                        isVisible ? 'opacity-100' : 'opacity-0'
-                      }`}
-                    >
-                      {services[currentServiceIndex]}
-                    </span>
-                    <span 
-                      className={`block absolute top-0 left-0 transition-opacity duration-500 ease-in-out whitespace-nowrap ${
-                        !isVisible ? 'opacity-100' : 'opacity-0'
-                      }`}
-                    >
-                      {services[(currentServiceIndex + 1) % services.length]}
-                    </span>
-                  </>
+                  <span 
+                    className={`block absolute top-0 left-0 leading-none transition-opacity duration-500 ease-in-out ${
+                      isVisible ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    style={{ whiteSpace: 'nowrap' }}
+                  >
+                    {services[currentServiceIndex]}
+                  </span>
                 )}
               </span>
             </h1>
