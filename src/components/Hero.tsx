@@ -19,34 +19,34 @@ const Hero = () => {
   
   // Full service list for desktop
   const servicesDesktop = [
-    "Computer-Reparatur & Hilfe",
-    "WLAN-Einrichtung & Optimierung", 
+    "Computer-Reparatur",
+    "WLAN-Setup", 
     "Smart-Home-Installation",
-    "Viren- & Malware-Entfernung",
-    "Daten-Backup & Wiederherstellung",
+    "Virenentfernung",
+    "Datensicherung",
     "TV-Wandmontage",
     "Drucker-Einrichtung",
-    "Netzwerk-Troubleshooting",
+    "Netzwerk-Support",
     "Videotürklingel-Setup",
-    "Sicherheitskameras einrichten",
-    "Streaming-Geräte einrichten",
+    "Kamera-Installation",
+    "Streaming-Setup",
     "Smart-TV-Setup",
-    "Audio-/Video-Kalibrierung",
-    "Betriebssystem-Installation"
+    "Audio-Video-Setup",
+    "System-Installation"
   ];
   
   // Shortened service list for mobile
   const servicesMobile = [
     "Computer-Reparatur",
-    "WLAN-Einrichtung", 
+    "WLAN-Setup", 
     "Smart-Home-Setup",
-    "Viren-Entfernung",
-    "Daten-Backup",
+    "Virenentfernung",
+    "Datensicherung",
     "TV-Wandmontage",
     "Drucker-Setup",
-    "Netzwerk-Hilfe",
+    "Netzwerk-Support",
     "Video-Setup",
-    "Sicherheitskameras"
+    "Kamera-Installation"
   ];
   
   const services = isMobile ? servicesMobile : servicesDesktop;
