@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Phone, MessageCircle } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
+import WhatsAppIcon from "@/assets/whatsapp.svg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
     { name: "Startseite", href: "/" },
-    { name: "Vorteile", href: "/benefits" },
+    { name: "Vorteile", href: "/vorteile" },
     { name: "Pakete", href: "/pakete" },
     { name: "Über uns", href: "/about" },
     { name: "Kontakt", href: "/kontakt" },
@@ -16,7 +17,10 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/4915565029989", "_blank");
+    if (typeof window !== 'undefined' && window.umami) {
+      window.umami.track('whatsapp_start', { location: 'header' });
+    }
+    window.open("https://wa.me/4915565029989?text=Hallo,%20ich%20interessiere%20mich%20für%20ein%20Service-Paket...", "_blank");
   };
 
   return (
@@ -59,7 +63,7 @@ const Header = () => {
               className="btn-whatsapp text-sm py-2 px-4"
               aria-label="Chat auf WhatsApp starten"
             >
-              <MessageCircle className="h-4 w-4" />
+              <img src={WhatsAppIcon} alt="WhatsApp" className="h-4 w-4" />
               WhatsApp
             </button>
           </div>
@@ -106,7 +110,7 @@ const Header = () => {
                   className="btn-whatsapp w-full justify-center"
                   aria-label="Chat auf WhatsApp starten"
                 >
-                  <MessageCircle className="h-4 w-4" />
+                  <img src={WhatsAppIcon} alt="WhatsApp" className="h-4 w-4" />
                   WhatsApp Support
                 </button>
               </div>
