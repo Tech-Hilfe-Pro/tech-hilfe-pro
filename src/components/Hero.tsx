@@ -5,7 +5,10 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  const [displayText, setDisplayText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [showCursor, setShowCursor] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [animationStarted, setAnimationStarted] = useState(false);
@@ -47,7 +50,9 @@ const Hero = () => {
   ];
   
   const services = isMobile ? servicesMobile : servicesDesktop;
-  const rotationInterval = 3000;
+  const typeSpeed = 100;
+  const deleteSpeed = 50;
+  const pauseDuration = 2000;
 
   useEffect(() => {
     // Check if user prefers reduced motion
@@ -70,23 +75,43 @@ const Hero = () => {
       return;
     }
 
-    const interval = setInterval(() => {
-      setIsVisible(false);
-      
-      setTimeout(() => {
-        setCurrentServiceIndex((prev) => (prev + 1) % services.length);
-        
-        // Track word change
-        if (typeof window !== 'undefined' && window.umami) {
-          window.umami.track('hero_cycle_word', { word: services[(currentServiceIndex + 1) % services.length] });
-        }
-        
-        setIsVisible(true);
-      }, 250);
-    }, rotationInterval);
+    const currentService = services[currentServiceIndex];
+    let timeout: NodeJS.Timeout;
 
-    return () => clearInterval(interval);
-  }, [currentServiceIndex, services, isPaused, prefersReducedMotion, rotationInterval]);
+    if (isDeleting) {
+      if (displayText.length === 0) {
+        setIsDeleting(false);
+        setCurrentServiceIndex((prev) => {
+          const nextIndex = (prev + 1) % services.length;
+          // Track word change
+          if (typeof window !== 'undefined' && window.umami) {
+            window.umami.track('hero_cycle_word', { word: services[nextIndex] });
+          }
+          return nextIndex;
+        });
+        setIsTyping(true);
+      } else {
+        timeout = setTimeout(() => {
+          setDisplayText((prev) => prev.slice(0, -1));
+        }, deleteSpeed);
+      }
+    } else if (isTyping) {
+      if (displayText === currentService) {
+        setIsTyping(false);
+        setShowCursor(false);
+        timeout = setTimeout(() => {
+          setShowCursor(true);
+          setIsDeleting(true);
+        }, pauseDuration);
+      } else {
+        timeout = setTimeout(() => {
+          setDisplayText(currentService.slice(0, displayText.length + 1));
+        }, typeSpeed);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isTyping, isDeleting, currentServiceIndex, services, isPaused, prefersReducedMotion, typeSpeed, deleteSpeed, pauseDuration]);
 
   const handleConsultation = () => {
     // Track analytics event
@@ -130,20 +155,18 @@ const Hero = () => {
             >
               {staticText}
               <span 
-                className="relative inline-block text-accent"
-                style={{ minWidth: isMobile ? '200px' : '350px' }}
+                className="relative inline-block text-accent text-left"
+                style={{ minWidth: isMobile ? '300px' : '450px' }}
               >
                 {prefersReducedMotion ? (
                   <span aria-live="polite">IT-Service & Support</span>
                 ) : (
                   <span 
-                    className={`transition-opacity duration-500 ease-in-out ${
-                      isVisible ? 'opacity-100' : 'opacity-0'
-                    }`}
                     aria-live="polite"
                     aria-atomic="true"
                   >
-                    {services[currentServiceIndex]}
+                    {displayText}
+                    <span className={`typewriter-cursor ${showCursor ? 'opacity-100' : 'opacity-0'}`}>|</span>
                   </span>
                 )}
               </span>
