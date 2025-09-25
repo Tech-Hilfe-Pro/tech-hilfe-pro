@@ -1,123 +1,98 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Phone } from "lucide-react";
 import WhatsAppIcon from "@/assets/whatsapp.svg";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
-  const [isTyping, setIsTyping] = useState(true);
+  const [isTyping, setIsTyping] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [showCursor, setShowCursor] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [animationStarted, setAnimationStarted] = useState(false);
-  
-  const isMobile = useIsMobile();
   
   const staticText = "Planbare IT-Kosten. Proaktiver Support. Sicherheit für Köln & Umgebung: ";
-  
-  // Full service list for desktop
-  const servicesDesktop = [
-    "Computer-Reparatur",
-    "WLAN-Setup", 
-    "Smart-Home-Installation",
-    "Virenentfernung",
-    "Datensicherung",
+  const services = [
     "TV-Wandmontage",
+    "Computer-Reparatur & Hilfe", 
     "Drucker-Einrichtung",
-    "Netzwerk-Support",
+    "WLAN-Einrichtung & Optimierung",
+    "Netzwerk-Troubleshooting",
+    "Smart-Home-Installation",
     "Videotürklingel-Setup",
-    "Kamera-Installation",
-    "Streaming-Setup",
-    "Smart-TV-Setup",
-    "Audio-Video-Setup",
-    "System-Installation"
+    "Sicherheitskameras einrichten",
+    "Heimsicherheit prüfen",
+    "Streaming-Geräte einrichten",
+    "Smart-TV-Setup", 
+    "Audio-/Video-Kalibrierung",
+    "Viren- & Malware-Entfernung",
+    "Daten-Backup & Wiederherstellung",
+    "Betriebssystem-Installation",
+    "PC-Tune-Up & Beschleunigung",
+    "E-Mail & Cloud-Konten einrichten",
+    "Smartphone & Tablet-Support",
+    "Smart-Beleuchtung konfigurieren",
+    "Smart-Thermostat-Einbau"
   ];
   
-  // Shortened service list for mobile
-  const servicesMobile = [
-    "Computer-Reparatur",
-    "WLAN-Setup", 
-    "Smart-Home-Setup",
-    "Virenentfernung",
-    "Datensicherung",
-    "TV-Wandmontage",
-    "Drucker-Setup",
-    "Netzwerk-Support",
-    "Video-Setup",
-    "Kamera-Installation"
-  ];
-  
-  const services = isMobile ? servicesMobile : servicesDesktop;
-  const typeSpeed = 100;
-  const deleteSpeed = 50;
-  const pauseDuration = 2000;
+  const typingSpeed = 100;
+  const deletingSpeed = 50;
+  const pauseTime = 2000;
 
   useEffect(() => {
     // Check if user prefers reduced motion
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    setPrefersReducedMotion(reducedMotion);
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    if (reducedMotion) {
+    if (prefersReducedMotion) {
+      setDisplayText("IT-Service & Support");
+      setShowCursor(false);
       return;
     }
 
-    // Track animation start (only once)
-    if (!animationStarted && typeof window !== 'undefined' && window.umami) {
+    // Track animation start
+    if (typeof window !== 'undefined' && window.umami) {
       window.umami.track('hero_cycle_start');
-      setAnimationStarted(true);
-    }
-  }, [animationStarted]);
-
-  useEffect(() => {
-    if (prefersReducedMotion || isPaused) {
-      return;
     }
 
     let timeout: NodeJS.Timeout;
+    const currentService = services[currentServiceIndex];
+
+    if (isPaused) {
+      return;
+    }
 
     if (isDeleting) {
-      if (displayText.length === 0) {
-        // When finished deleting, move to next service and start typing
-        const nextIndex = (currentServiceIndex + 1) % services.length;
-        
-        // Track word change
-        if (typeof window !== 'undefined' && window.umami) {
-          window.umami.track('hero_cycle_word', { word: services[nextIndex] });
-        }
-        
-        setCurrentServiceIndex(nextIndex);
+      if (displayText.length > 0) {
+        timeout = setTimeout(() => {
+          setDisplayText(displayText.slice(0, -1));
+        }, deletingSpeed);
+      } else {
         setIsDeleting(false);
-        setIsTyping(true);
-        return;
-      } else {
-        timeout = setTimeout(() => {
-          setDisplayText((prev) => prev.slice(0, -1));
-        }, deleteSpeed);
+        setCurrentServiceIndex((prev) => (prev + 1) % services.length);
       }
-    } else if (isTyping) {
-      const currentService = services[currentServiceIndex];
-      if (displayText === currentService) {
-        // When finished typing, pause then start deleting
-        setIsTyping(false);
-        setShowCursor(false);
-        timeout = setTimeout(() => {
-          setShowCursor(true);
-          setIsDeleting(true);
-        }, pauseDuration);
-      } else {
+    } else {
+      if (displayText.length < currentService.length) {
         timeout = setTimeout(() => {
           setDisplayText(currentService.slice(0, displayText.length + 1));
-        }, typeSpeed);
+        }, typingSpeed);
+      } else {
+        // Word complete, start deleting after pause
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, pauseTime);
       }
-    } else if (!isTyping && !isDeleting && displayText === "") {
-      // Failsafe: if stuck in limbo, restart typing
-      setIsTyping(true);
     }
 
     return () => clearTimeout(timeout);
-  }, [displayText, isTyping, isDeleting, currentServiceIndex, services, prefersReducedMotion, isPaused]);
+  }, [currentServiceIndex, displayText, isDeleting, services, isPaused]);
+
+  useEffect(() => {
+    if (displayText === services[currentServiceIndex] && !isDeleting) {
+      // Track word completion
+      if (typeof window !== 'undefined' && window.umami) {
+        window.umami.track('hero_cycle_word', { word: displayText });
+      }
+    }
+  }, [displayText, currentServiceIndex, isDeleting, services]);
 
   const handleConsultation = () => {
     // Track analytics event
@@ -161,19 +136,13 @@ const Hero = () => {
             >
               {staticText}
               <span 
-                className="relative inline-block text-accent text-left"
-                style={{ minWidth: isMobile ? '300px' : '450px' }}
+                className="text-accent"
+                aria-live="polite"
+                aria-atomic="true"
               >
-                {prefersReducedMotion ? (
-                  <span aria-live="polite">IT-Service & Support</span>
-                ) : (
-                  <span 
-                    aria-live="polite"
-                    aria-atomic="true"
-                  >
-                    {displayText}
-                    <span className={`typewriter-cursor ${showCursor ? 'opacity-100' : 'opacity-0'}`}>|</span>
-                  </span>
+                {displayText}
+                {showCursor && (
+                  <span className="inline-block w-0.5 h-[1em] bg-accent ml-1 animate-pulse" />
                 )}
               </span>
             </h1>

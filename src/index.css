@@ -228,20 +228,11 @@ All colors MUST be HSL. Clean typography with Inter font family.
     }
   }
   
-  .typewriter-cursor {
-    display: inline-block;
-    margin-left: 2px;
-    animation: blink 1s infinite;
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  @keyframes blink {
-    0%, 50% {
-      opacity: 1;
-    }
-    51%, 100% {
-      opacity: 0;
-    }
+  .typewriter {
+    overflow: hidden;
+    border-right: 2px solid;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink 1s step-end infinite;
   }
   
   /* WhatsApp button */
