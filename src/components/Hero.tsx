@@ -13,9 +13,9 @@ const Hero = () => {
   const staticText = "Planbare IT-Kosten. Proaktiver Support. Sicherheit für Köln & Umgebung: ";
   const services = [
     "TV-Wandmontage",
-    "Computer-Reparatur & Hilfe", 
+    "PC-Reparatur", 
     "Drucker-Einrichtung",
-    "WLAN-Einrichtung & Optimierung",
+    "WiFi-Setup",
     "Netzwerk-Troubleshooting",
     "Smart-Home-Installation",
     "Videotürklingel-Setup",
@@ -25,12 +25,12 @@ const Hero = () => {
     "Smart-TV-Setup", 
     "Audio-/Video-Kalibrierung",
     "Viren- & Malware-Entfernung",
-    "Daten-Backup & Wiederherstellung",
-    "Betriebssystem-Installation",
-    "PC-Tune-Up & Beschleunigung",
-    "E-Mail & Cloud-Konten einrichten",
+    "Datensicherung",
+    "Windows-Installation",
+    "PC-Optimierung",
+    "E-Mail-Setup",
     "Smartphone & Tablet-Support",
-    "Smart-Beleuchtung konfigurieren",
+    "Smart-Licht-Setup",
     "Smart-Thermostat-Einbau"
   ];
   
