@@ -8,6 +8,7 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   
   const staticText = "Planbare IT-Kosten. Proaktiver Support. Sicherheit für Köln & Umgebung: ";
   
@@ -60,21 +61,30 @@ const Hero = () => {
   const services = isMobile ? mobileServices : desktopServices;
   const displayInterval = 3000; // 3 seconds per word
 
-  // Check for mobile on mount and resize
+  // Check for mobile and reduced motion on mount and resize
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
     
+    const checkReducedMotion = () => {
+      setPrefersReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    };
+    
     checkMobile();
+    checkReducedMotion();
     window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    mediaQuery.addEventListener('change', checkReducedMotion);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      mediaQuery.removeEventListener('change', checkReducedMotion);
+    };
   }, []);
 
   useEffect(() => {
-    // Check if user prefers reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
     if (prefersReducedMotion) {
       return;
     }
@@ -154,7 +164,7 @@ const Hero = () => {
                 aria-live="polite"
                 aria-atomic="true"
               >
-                {window.matchMedia('(prefers-reduced-motion: reduce)').matches ? (
+                {prefersReducedMotion ? (
                   "IT-Service & Support"
                 ) : (
                   <span 
