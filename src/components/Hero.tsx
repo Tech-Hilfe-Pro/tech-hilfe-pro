@@ -89,8 +89,8 @@ const Hero = () => {
       return;
     }
 
-    // Track animation start
-    if (typeof window !== 'undefined' && window.umami) {
+    // Track animation start only once
+    if (currentServiceIndex === 0 && typeof window !== 'undefined' && window.umami) {
       window.umami.track('hero_cycle_start');
     }
 
@@ -105,18 +105,19 @@ const Hero = () => {
       setIsVisible(false);
       
       setTimeout(() => {
-        setCurrentServiceIndex((prev) => (prev + 1) % services.length);
+        const nextIndex = (currentServiceIndex + 1) % services.length;
+        setCurrentServiceIndex(nextIndex);
         setIsVisible(true);
         
         // Track word change
         if (typeof window !== 'undefined' && window.umami) {
-          window.umami.track('hero_cycle_word', { word: services[(currentServiceIndex + 1) % services.length] });
+          window.umami.track('hero_cycle_word', { word: services[nextIndex] });
         }
       }, 300); // Half of the transition duration
     }, displayInterval);
 
     return () => clearTimeout(timeout);
-  }, [currentServiceIndex, services, isPaused, displayInterval]);
+  }, [currentServiceIndex, services, isPaused, displayInterval, prefersReducedMotion]);
 
   const handleConsultation = () => {
     // Track analytics event
@@ -160,20 +161,30 @@ const Hero = () => {
             >
               {staticText}
               <span 
-                className="text-accent inline-block min-w-[280px] md:min-w-[400px] text-left relative"
+                className="text-accent inline-block text-left relative h-[1.2em] overflow-hidden"
+                style={{ minWidth: isMobile ? '200px' : '350px' }}
                 aria-live="polite"
                 aria-atomic="true"
               >
                 {prefersReducedMotion ? (
-                  "IT-Service & Support"
+                  <span className="block">IT-Service & Support</span>
                 ) : (
-                  <span 
-                    className={`absolute top-0 left-0 transition-opacity duration-600 ${
-                      isVisible ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  >
-                    {services[currentServiceIndex]}
-                  </span>
+                  <>
+                    <span 
+                      className={`block absolute top-0 left-0 transition-opacity duration-500 ease-in-out whitespace-nowrap ${
+                        isVisible ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    >
+                      {services[currentServiceIndex]}
+                    </span>
+                    <span 
+                      className={`block absolute top-0 left-0 transition-opacity duration-500 ease-in-out whitespace-nowrap ${
+                        !isVisible ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    >
+                      {services[(currentServiceIndex + 1) % services.length]}
+                    </span>
+                  </>
                 )}
               </span>
             </h1>
