@@ -150,6 +150,7 @@ const Hero = () => {
               onBlur={() => setIsPaused(false)}
             >
               {staticText}
+              <br className="block md:hidden" />
               <span 
                 className="text-accent dynamic-text-mobile"
                 aria-live="polite"

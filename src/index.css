@@ -157,13 +157,16 @@ All colors MUST be HSL. Clean typography with Inter font family.
   }
 }
 
-/* Mobile typewriter fix */
-@media (max-width: 768px) {
+/* Mobile typewriter fix - Two lines solution */
+@media (max-width: 767px) {
+  .text-hero {
+    line-height: 1.3;
+  }
   .dynamic-text-mobile {
-    min-height: 1.2em;
-    display: inline-flex;
-    align-items: center;
-    vertical-align: top;
+    display: block;
+    min-height: 1.5em;
+    text-align: center;
+    margin-top: 0.25rem;
   }
 }
 
