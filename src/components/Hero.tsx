@@ -80,16 +80,18 @@ const Hero = () => {
 
     if (isDeleting) {
       if (displayText.length === 0) {
+        // When finished deleting, move to next service and start typing
+        const nextIndex = (currentServiceIndex + 1) % services.length;
+        
+        // Track word change
+        if (typeof window !== 'undefined' && window.umami) {
+          window.umami.track('hero_cycle_word', { word: services[nextIndex] });
+        }
+        
+        setCurrentServiceIndex(nextIndex);
         setIsDeleting(false);
-        setCurrentServiceIndex((prev) => {
-          const nextIndex = (prev + 1) % services.length;
-          // Track word change
-          if (typeof window !== 'undefined' && window.umami) {
-            window.umami.track('hero_cycle_word', { word: services[nextIndex] });
-          }
-          return nextIndex;
-        });
         setIsTyping(true);
+        return;
       } else {
         timeout = setTimeout(() => {
           setDisplayText((prev) => prev.slice(0, -1));
@@ -97,6 +99,7 @@ const Hero = () => {
       }
     } else if (isTyping) {
       if (displayText === currentService) {
+        // When finished typing, pause then start deleting
         setIsTyping(false);
         setShowCursor(false);
         timeout = setTimeout(() => {
@@ -108,10 +111,13 @@ const Hero = () => {
           setDisplayText(currentService.slice(0, displayText.length + 1));
         }, typeSpeed);
       }
+    } else if (!isTyping && !isDeleting && displayText === "") {
+      // Failsafe: if stuck in limbo, restart typing
+      setIsTyping(true);
     }
 
     return () => clearTimeout(timeout);
-  }, [displayText, isTyping, isDeleting, currentServiceIndex, services, isPaused, prefersReducedMotion, typeSpeed, deleteSpeed, pauseDuration]);
+  }, [displayText, isTyping, isDeleting, currentServiceIndex, prefersReducedMotion, isPaused]);
 
   const handleConsultation = () => {
     // Track analytics event
