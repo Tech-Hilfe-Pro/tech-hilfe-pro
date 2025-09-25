@@ -5,14 +5,13 @@ import WhatsAppIcon from "@/assets/whatsapp.svg";
 
 const Hero = () => {
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [showCursor, setShowCursor] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   
   const staticText = "Planbare IT-Kosten. Proaktiver Support. Sicherheit für Köln & Umgebung: ";
-  const services = [
+  
+  const desktopServices = [
     "TV-Wandmontage",
     "Computer-Reparatur & Hilfe", 
     "Drucker-Einrichtung",
@@ -34,18 +33,49 @@ const Hero = () => {
     "Smart-Beleuchtung konfigurieren",
     "Smart-Thermostat-Einbau"
   ];
+
+  const mobileServices = [
+    "TV-Wandmontage",
+    "Computerhilfe",
+    "Drucker-Setup",
+    "WLAN-Setup",
+    "Netzwerk-Check",
+    "Smart-Home-Service",
+    "Videotürklingel",
+    "Kamera-Setup",
+    "Heimsicherheits-Check",
+    "Streaming-Setup",
+    "Smart-TV-Setup",
+    "AV-Kalibrierung",
+    "Malware-Entfernung",
+    "Backup & Restore",
+    "OS-Installation",
+    "PC-Tune-Up",
+    "E-Mail & Cloud-Setup",
+    "Mobilgeräte-Support",
+    "Smart-Licht-Setup",
+    "Thermostat-Setup"
+  ];
   
-  const typingSpeed = 100;
-  const deletingSpeed = 50;
-  const pauseTime = 2000;
+  const services = isMobile ? mobileServices : desktopServices;
+  const displayInterval = 3000; // 3 seconds per word
+
+  // Check for mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     if (prefersReducedMotion) {
-      setDisplayText("IT-Service & Support");
-      setShowCursor(false);
       return;
     }
 
@@ -54,46 +84,29 @@ const Hero = () => {
       window.umami.track('hero_cycle_start');
     }
 
-    let timeout: NodeJS.Timeout;
-    const currentService = services[currentServiceIndex];
-
     if (isPaused) {
       return;
     }
 
-    if (isDeleting) {
-      if (displayText.length > 0) {
-        timeout = setTimeout(() => {
-          setDisplayText(displayText.slice(0, -1));
-        }, deletingSpeed);
-      } else {
-        setIsDeleting(false);
+    let timeout: NodeJS.Timeout;
+
+    // Cross-fade animation
+    timeout = setTimeout(() => {
+      setIsVisible(false);
+      
+      setTimeout(() => {
         setCurrentServiceIndex((prev) => (prev + 1) % services.length);
-      }
-    } else {
-      if (displayText.length < currentService.length) {
-        timeout = setTimeout(() => {
-          setDisplayText(currentService.slice(0, displayText.length + 1));
-        }, typingSpeed);
-      } else {
-        // Word complete, start deleting after pause
-        timeout = setTimeout(() => {
-          setIsDeleting(true);
-        }, pauseTime);
-      }
-    }
+        setIsVisible(true);
+        
+        // Track word change
+        if (typeof window !== 'undefined' && window.umami) {
+          window.umami.track('hero_cycle_word', { word: services[(currentServiceIndex + 1) % services.length] });
+        }
+      }, 300); // Half of the transition duration
+    }, displayInterval);
 
     return () => clearTimeout(timeout);
-  }, [currentServiceIndex, displayText, isDeleting, services, isPaused]);
-
-  useEffect(() => {
-    if (displayText === services[currentServiceIndex] && !isDeleting) {
-      // Track word completion
-      if (typeof window !== 'undefined' && window.umami) {
-        window.umami.track('hero_cycle_word', { word: displayText });
-      }
-    }
-  }, [displayText, currentServiceIndex, isDeleting, services]);
+  }, [currentServiceIndex, services, isPaused, displayInterval]);
 
   const handleConsultation = () => {
     // Track analytics event
@@ -137,13 +150,20 @@ const Hero = () => {
             >
               {staticText}
               <span 
-                className="text-accent"
+                className="text-accent inline-block min-w-[280px] md:min-w-[400px] text-left relative"
                 aria-live="polite"
                 aria-atomic="true"
               >
-                {displayText}
-                {showCursor && (
-                  <span className="inline-block w-0.5 h-[1em] bg-accent ml-1 animate-pulse" />
+                {window.matchMedia('(prefers-reduced-motion: reduce)').matches ? (
+                  "IT-Service & Support"
+                ) : (
+                  <span 
+                    className={`absolute top-0 left-0 transition-opacity duration-600 ${
+                      isVisible ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    {services[currentServiceIndex]}
+                  </span>
                 )}
               </span>
             </h1>
