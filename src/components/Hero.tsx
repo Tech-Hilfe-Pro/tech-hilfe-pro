@@ -152,7 +152,7 @@ const Hero = () => {
               {staticText}
               <br className="block md:hidden" />
               <span 
-                className="text-accent dynamic-text-mobile"
+                className="text-accent"
                 aria-live="polite"
                 aria-atomic="true"
               >
