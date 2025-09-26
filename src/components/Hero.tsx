@@ -150,12 +150,12 @@ const Hero = () => {
               onBlur={() => setIsPaused(false)}
             >
               {staticText}
-              <br className="block md:hidden" />
               <span 
                 className="text-accent"
                 aria-live="polite"
                 aria-atomic="true"
               >
+                <br className="block md:hidden" />
                 {displayText}
                 {showCursor && (
                   <span className="inline-block w-0.5 h-[1em] bg-accent ml-1 animate-pulse" />
