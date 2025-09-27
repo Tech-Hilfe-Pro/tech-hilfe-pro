@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import BenefitsGrid from "@/components/BenefitsGrid";
 import PackagePreview from "@/components/PackagePreview";
-import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
@@ -53,7 +52,6 @@ const Index = () => {
         <Hero />
         <BenefitsGrid />
         <PackagePreview />
-        <Testimonials />
         <FAQ />
       </main>
       <Footer />
