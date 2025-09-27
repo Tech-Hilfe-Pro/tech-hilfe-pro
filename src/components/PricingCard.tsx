@@ -31,7 +31,7 @@ const PricingCard = ({
   const dataCheckout = `${segment}-${planName}-${billingCycle}`;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-card border border-border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 h-full min-h-[680px] flex flex-col">
+    <div className="relative overflow-hidden rounded-2xl bg-card border border-border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 h-full min-h-[720px] flex flex-col">
       <div className="p-6 flex-1 flex flex-col">
         {/* Badge */}
         <div className="h-8 flex items-center justify-center mb-4">
@@ -72,7 +72,7 @@ const PricingCard = ({
           
           {/* Tax Note */}
           <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
-            Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.
+            {pkg.taxNote}
           </p>
           
           {/* Promo Space - Reserve space for consistency */}
@@ -129,10 +129,12 @@ const PricingCard = ({
           </button>
         </div>
         
-        {/* Footer Note */}
-        <div className="text-xs text-muted-foreground text-center leading-relaxed border-t border-border pt-3">
+        {/* Primary CTA Microcopy */}
+        <div className="text-xs text-muted-foreground text-center leading-relaxed mb-4">
           Monatlich kündbar. Verwaltung im Kundenportal. Kein Umsatzsteuerausweis gem. § 19 UStG.
         </div>
+        
+        {/* Footer Note - remove old one since we moved it up */}
       </div>
     </div>
   );
