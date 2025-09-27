@@ -149,13 +149,13 @@ const Hero = () => {
               onFocus={() => setIsPaused(true)}
               onBlur={() => setIsPaused(false)}
             >
-              {staticText}
+              <span className="block">{staticText}</span>
               <span 
-                className="text-accent"
+                className="text-accent block md:block"
                 aria-live="polite"
                 aria-atomic="true"
               >
-                <br className="block md:hidden" />
+                <br className="hidden md:block" />
                 {displayText}
                 {showCursor && (
                   <span className="inline-block w-0.5 h-[1em] bg-accent ml-1 animate-pulse" />
