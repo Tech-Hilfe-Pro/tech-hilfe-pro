@@ -12,6 +12,7 @@ const Header = () => {
     { name: "Pakete", href: "/pakete" },
     { name: "Über uns", href: "/about" },
     { name: "Kontakt", href: "/kontakt" },
+    { name: "Impressum", href: "/impressum" },
     { name: "AGB", href: "/agb" },
   ];
 

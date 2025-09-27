@@ -35,7 +35,7 @@ const Impressum = () => {
             
             <h1 className="text-hero mb-4">Impressum</h1>
             <p className="text-subtitle">
-              Angaben gemäß § 5 TMG
+              Angaben gemäß Telemediengesetz (TMG) und Medienstaatsvertrag (MStV)
             </p>
           </div>
         </section>
@@ -43,76 +43,101 @@ const Impressum = () => {
         {/* Content */}
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="prose prose-lg max-w-none">
-              <div className="bg-white border border-border rounded-2xl p-8 mb-8">
-                <h2 className="text-2xl font-semibold mb-6 text-foreground">Anbieter</h2>
-                <div className="space-y-2 text-foreground">
-                  <p><strong>Tech Hilfe Pro</strong></p>
-                  <p>José Carlos Martin Lache</p>
-                  <p>[Straße, Hausnummer]</p>
-                  <p>[PLZ, Stadt] Köln</p>
+            <div className="prose prose-lg max-w-none space-y-8">
+              
+              <div className="bg-white border border-border rounded-2xl p-8">
+                <h2 className="text-2xl font-semibold mb-6 text-foreground">Angaben gemäß § 5 TMG</h2>
+                <div className="text-foreground leading-relaxed">
+                  <p className="mb-2"><strong>Tech Hilfe Pro</strong></p>
+                  <p className="mb-1">[Vor- und Nachname / Firmenname]</p>
+                  <p className="mb-1">[Anschrift: Straße Hausnummer]</p>
+                  <p className="mb-4">[PLZ Ort], Deutschland</p>
+                  
+                  <p className="mb-1">Telefon: [Telefonnummer]</p>
+                  <p className="mb-1">E-Mail: [E-Mail-Adresse]</p>
+                  <p className="mb-4">WhatsApp: [Nummer oder „Click-to-Chat"]</p>
+                  
+                  <p>USt-Status: Kleinunternehmer gemäß § 19 UStG, <strong>kein</strong> Ausweis von Umsatzsteuer.</p>
                 </div>
-              </div>
-
-              <div className="bg-white border border-border rounded-2xl p-8 mb-8">
-                <h2 className="text-2xl font-semibold mb-6 text-foreground">Kontakt</h2>
-                <div className="space-y-2 text-foreground">
-                  <p><strong>E-Mail:</strong> kontakt@techhilfepro.de</p>
-                  <p><strong>Telefon:</strong> +49 1556 5029989</p>
-                </div>
-              </div>
-
-              <div className="bg-white border border-border rounded-2xl p-8 mb-8">
-                <h2 className="text-2xl font-semibold mb-6 text-foreground">Umsatzsteuer-ID</h2>
-                <p className="text-foreground">
-                  [Umsatzsteuer-Identifikationsnummer nach §27 a Umsatzsteuergesetz: falls vorhanden]
-                </p>
-              </div>
-
-              <div className="bg-white border border-border rounded-2xl p-8 mb-8">
-                <h2 className="text-2xl font-semibold mb-6 text-foreground">Haftungsausschluss</h2>
-                
-                <h3 className="text-lg font-semibold mb-3 text-foreground">Haftung für Inhalte</h3>
-                <p className="text-foreground mb-4">
-                  Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den 
-                  allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht 
-                  unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach 
-                  Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
-                </p>
-
-                <h3 className="text-lg font-semibold mb-3 text-foreground">Haftung für Links</h3>
-                <p className="text-foreground mb-4">
-                  Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. 
-                  Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten 
-                  Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
-                </p>
-
-                <h3 className="text-lg font-semibold mb-3 text-foreground">Urheberrecht</h3>
-                <p className="text-foreground">
-                  Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen 
-                  Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der 
-                  Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
-                </p>
               </div>
 
               <div className="bg-white border border-border rounded-2xl p-8">
-                <h2 className="text-2xl font-semibold mb-6 text-foreground">EU-Streitschlichtung</h2>
-                <p className="text-foreground mb-4">
-                  Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
-                  <a 
-                    href="https://ec.europa.eu/consumers/odr/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-accent hover:underline ml-1"
-                  >
-                    https://ec.europa.eu/consumers/odr/
-                  </a>
-                </p>
-                <p className="text-foreground">
-                  Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer 
-                  Verbraucherschlichtungsstelle teilzunehmen.
-                </p>
+                <h2 className="text-2xl font-semibold mb-6 text-foreground">Vertretungsberechtigte Person</h2>
+                <div className="text-foreground leading-relaxed">
+                  <p>[Name der verantwortlichen Person]</p>
+                </div>
               </div>
+
+              <div className="bg-white border border-border rounded-2xl p-8">
+                <h2 className="text-2xl font-semibold mb-6 text-foreground">Verantwortlich i. S. d. § 18 Abs. 2 MStV</h2>
+                <div className="text-foreground leading-relaxed">
+                  <p>[Name, Anschrift wie oben]</p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-border rounded-2xl p-8">
+                <h2 className="text-2xl font-semibold mb-6 text-foreground">EU-Streitschlichtung / Verbraucherstreitbeilegung</h2>
+                <div className="text-foreground leading-relaxed">
+                  <p className="mb-4">
+                    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: 
+                    <a href="https://ec.europa.eu/consumers/odr/" className="text-primary hover:text-primary/80 underline ml-1" target="_blank" rel="noopener noreferrer">
+                      https://ec.europa.eu/consumers/odr/
+                    </a>
+                  </p>
+                  <p>
+                    Wir sind <strong>nicht verpflichtet</strong> und <strong>nicht bereit</strong>, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-border rounded-2xl p-8">
+                <h2 className="text-2xl font-semibold mb-6 text-foreground">Haftung für Inhalte</h2>
+                <div className="text-foreground leading-relaxed">
+                  <p>
+                    Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8–10 TMG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden entsprechender Rechtsverletzungen entfernen wir diese Inhalte umgehend.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-border rounded-2xl p-8">
+                <h2 className="text-2xl font-semibold mb-6 text-foreground">Haftung für Links</h2>
+                <div className="text-foreground leading-relaxed">
+                  <p>
+                    Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Bei Bekanntwerden von Rechtsverletzungen entfernen wir derartige Links umgehend.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-border rounded-2xl p-8">
+                <h2 className="text-2xl font-semibold mb-6 text-foreground">Urheberrecht</h2>
+                <div className="text-foreground leading-relaxed">
+                  <p>
+                    Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors/Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-border rounded-2xl p-8">
+                <h2 className="text-2xl font-semibold mb-6 text-foreground">Bild- und Icon-Nachweise</h2>
+                <div className="text-foreground leading-relaxed">
+                  <p>
+                    Eigene Grafiken/Assets; UI-Icons u. a. von <strong>lucide-react</strong>. Marken-/Produktnamen sind Eigentum der jeweiligen Inhaber.
+                  </p>
+                </div>
+              </div>
+
+              {/* Contact Section */}
+              <div className="bg-muted rounded-lg p-6">
+                <h3 className="text-lg font-semibold mb-4 text-foreground">Kontakt</h3>
+                <p className="text-muted-foreground mb-4">
+                  Bei Fragen zu diesem Impressum oder rechtlichen Angelegenheiten können Sie uns kontaktieren:
+                </p>
+                <div className="space-y-2 text-sm">
+                  <p className="text-foreground">E-Mail: kontakt@techhilfepro.de</p>
+                  <p className="text-foreground">Telefon: +49 1556 5029989</p>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
