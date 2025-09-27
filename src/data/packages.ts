@@ -21,6 +21,177 @@ export type Package = {
 };
 
 export const packages: Package[] = [
+  // Privat Packages
+  {
+    segment: 'privat',
+    slug: 'privat-solo',
+    name: 'Sorglos Digital – Solo',
+    subtitle: 'Für Einzelpersonen & Minimalisten',
+    positioning: 'Grundschutz ohne Schnickschnack.',
+    monthlyPrice: 15,
+    yearlyPrice: 13, // 15% Rabatt
+    taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
+    cta: 'Jetzt starten',
+    keyDifferences: [
+      'Remote-Support werktags 9-17 Uhr',
+      'E-Mail & Chat-Support',
+      'Basis-Sicherheitscheck monatlich'
+    ],
+    included: [
+      'Remote-Support werktags',
+      'E-Mail & Chat-Support',
+      'Monatlicher Sicherheitscheck',
+      'Software-Updates',
+      'Basis-Virenschutz'
+    ],
+    notIncluded: [
+      'Vor-Ort-Service',
+      'Abend-/Wochenend-Support',
+      'Hardware-Beschaffung',
+      'Datenrettung',
+      'Express-Support'
+    ],
+    slaMatrix: [
+      {
+        priority: 'P1 (Kritisch)',
+        description: 'System nicht nutzbar',
+        responseTime: '4 Stunden',
+        resolutionTime: '1 Werktag'
+      },
+      {
+        priority: 'P2 (Hoch)',
+        description: 'Eingeschränkte Nutzung',
+        responseTime: '1 Werktag',
+        resolutionTime: '2 Werktage'
+      },
+      {
+        priority: 'P3 (Normal)',
+        description: 'Kleinere Probleme',
+        responseTime: '2 Werktage',
+        resolutionTime: '5 Werktage'
+      },
+      {
+        priority: 'P4 (Niedrig)',
+        description: 'Fragen & Optimierung',
+        responseTime: '3 Werktage',
+        resolutionTime: 'Geplant'
+      }
+    ]
+  },
+  {
+    segment: 'privat',
+    slug: 'privat-zuhause',
+    name: 'Sorglos Digital – Zuhause',
+    subtitle: 'Für Familien & Home-Office',
+    positioning: 'Vollständiger Schutz für das digitale Zuhause.',
+    monthlyPrice: 25,
+    yearlyPrice: 21, // 15% Rabatt
+    taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
+    badge: 'Beliebteste Wahl',
+    cta: 'Jetzt starten',
+    keyDifferences: [
+      'Erweiterte Support-Zeiten bis 20 Uhr',
+      'WhatsApp-Support inklusive',
+      'Quartalsweise Gesundheitschecks'
+    ],
+    included: [
+      'Alles aus Solo',
+      'Erweiterte Support-Zeiten (9-20 Uhr)',
+      'WhatsApp-Support',
+      'Quartalsweise Gesundheitschecks',
+      'Netzwerk-Optimierung',
+      'Backup-Beratung'
+    ],
+    notIncluded: [
+      'Vor-Ort-Service',
+      'Wochenend-Support',
+      'Hardware-Beschaffung',
+      'Datenrettung bei Defekt'
+    ],
+    slaMatrix: [
+      {
+        priority: 'P1 (Kritisch)',
+        description: 'System nicht nutzbar',
+        responseTime: '2 Stunden',
+        resolutionTime: '4 Stunden'
+      },
+      {
+        priority: 'P2 (Hoch)',
+        description: 'Eingeschränkte Nutzung',
+        responseTime: '4 Stunden',
+        resolutionTime: '1 Werktag'
+      },
+      {
+        priority: 'P3 (Normal)',
+        description: 'Kleinere Probleme',
+        responseTime: '1 Werktag',
+        resolutionTime: '3 Werktage'
+      },
+      {
+        priority: 'P4 (Niedrig)',
+        description: 'Fragen & Optimierung',
+        responseTime: '2 Werktage',
+        resolutionTime: 'Geplant'
+      }
+    ]
+  },
+  {
+    segment: 'privat',
+    slug: 'privat-familie',
+    name: 'Sorglos Digital – Familie+',
+    subtitle: 'Für große Haushalte & Power-User',
+    positioning: 'Maximaler Schutz mit persönlicher Betreuung.',
+    monthlyPrice: 39,
+    yearlyPrice: 33, // 15% Rabatt
+    taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
+    badge: 'Bester Gegenwert',
+    cta: 'Jetzt starten',
+    keyDifferences: [
+      'Support auch am Wochenende',
+      '1 Vor-Ort-Termin pro Jahr inklusive',
+      'Prioritäts-Support mit fester Ansprechperson'
+    ],
+    included: [
+      'Alles aus Zuhause',
+      'Wochenend-Support (Sa 10-16 Uhr)',
+      '1 Vor-Ort-Termin/Jahr inklusive',
+      'Prioritäts-Support',
+      'Persönlicher Ansprechpartner',
+      'Erweiterte Datenrettung'
+    ],
+    notIncluded: [
+      'Zusätzliche Vor-Ort-Einsätze',
+      '24/7-Support',
+      'Hardware-Beschaffung'
+    ],
+    slaMatrix: [
+      {
+        priority: 'P1 (Kritisch)',
+        description: 'System nicht nutzbar',
+        responseTime: '1 Stunde',
+        resolutionTime: '2 Stunden'
+      },
+      {
+        priority: 'P2 (Hoch)',
+        description: 'Eingeschränkte Nutzung',
+        responseTime: '2 Stunden',
+        resolutionTime: '4 Stunden'
+      },
+      {
+        priority: 'P3 (Normal)',
+        description: 'Kleinere Probleme',
+        responseTime: '4 Stunden',
+        resolutionTime: '1 Werktag'
+      },
+      {
+        priority: 'P4 (Niedrig)',
+        description: 'Fragen & Optimierung',
+        responseTime: '1 Werktag',
+        resolutionTime: 'Geplant'
+      }
+    ]
+  },
+  // KMU Packages
   {
     segment: 'kmu',
     slug: 'kmu-flow-essential',
@@ -30,8 +201,7 @@ export const packages: Package[] = [
     monthlyPrice: 29,
     yearlyPrice: 25, // 15% Rabatt
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
-    badge: 'Bester Gegenwert',
-    cta: 'Kostenlose Erstberatung',
+    cta: 'Jetzt starten',
     keyDifferences: [
       'Standard-SLA: Reaktion bis zum nächsten Werktag',
       'Keine Vor-Ort-Termine inklusive',
@@ -90,7 +260,7 @@ export const packages: Package[] = [
     yearlyPrice: 50, // 15% Rabatt
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
     badge: 'Beliebteste Wahl',
-    cta: 'Kostenlose Erstberatung',
+    cta: 'Jetzt starten',
     keyDifferences: [
       'Beschleunigte SLA: Reaktion unter 4 Stunden',
       'Quartalsweise Vor-Ort-Termine inklusive',
@@ -147,7 +317,8 @@ export const packages: Package[] = [
     monthlyPrice: 99,
     yearlyPrice: 84, // 15% Rabatt
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
-    cta: 'Kostenlose Erstberatung',
+    badge: 'Bester Gegenwert',
+    cta: 'Jetzt starten',
     keyDifferences: [
       'Premium-SLA: 24/7-Notfallnummer verfügbar',
       'Bis zu 3 Vor-Ort-Einsätze pro Jahr inklusive',
