@@ -55,7 +55,9 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <img src="/fh-logo.png" alt="Tech Hilfe Pro" className="h-8 w-8" />
-              <span className="text-xl font-semibold">Tech Hilfe Pro</span>
+              <span className="text-xl font-bold">
+                Tech <span className="text-primary">Hilfe</span> Pro
+              </span>
             </div>
             <p className="text-neutral-400 mb-6 max-w-md">
               Ihr vertrauensvoller IT-Partner in Köln. Proaktive Betreuung, 

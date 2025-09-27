@@ -30,8 +30,8 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img src="/fh-logo.png" alt="Tech Hilfe Pro" className="h-8 w-8" />
-            <span className="text-xl font-semibold text-foreground">
-              Tech Hilfe Pro
+            <span className="text-xl font-bold text-foreground">
+              Tech <span className="text-primary">Hilfe</span> Pro
             </span>
           </Link>
 
