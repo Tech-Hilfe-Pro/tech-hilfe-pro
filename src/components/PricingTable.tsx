@@ -30,9 +30,12 @@ const PricingTable = () => {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <h2 className="text-section-title mb-4 text-foreground">
+            <h2 className="text-section-title mb-2 text-foreground">
               KMU-Service-Pakete
             </h2>
+            <p className="text-sm text-muted-foreground mb-4">
+              (kleine und mittlere Unternehmen)
+            </p>
             <p className="text-subtitle max-w-2xl mx-auto mb-4">
               Sie zahlen für Vorsorge, Priorität und klare Reaktionszeiten. Für 24/7-Notfälle wählen Sie 360°.
             </p>
