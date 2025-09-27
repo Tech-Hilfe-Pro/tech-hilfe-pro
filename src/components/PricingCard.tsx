@@ -72,7 +72,7 @@ const PricingCard = ({
           
           {/* Tax Note */}
           <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
-            Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.
+            Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar. Bitte <a href="/agb" className="text-primary hover:text-primary/80 underline">AGB</a> lesen.
           </p>
           
           {/* Promo Space - Reserve space for consistency */}

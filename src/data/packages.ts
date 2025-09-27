@@ -43,7 +43,7 @@ export const packages: Package[] = [
       'Monatlicher Sicherheitscheck',
       'Software-Updates',
       'Basis-Virenschutz',
-      '1 Vor-Ort-Termin nach 12 Monaten inklusive'
+      'Vor-Ort-Termin verfügbar nach 12 Monaten ununterbrochener Mitgliedschaft'
     ],
     notIncluded: [
       'Vor-Ort-Service (vor 12 Monaten)',
@@ -102,7 +102,7 @@ export const packages: Package[] = [
       'Quartalsweise Gesundheitschecks',
       'Netzwerk-Optimierung',
       'Backup-Beratung',
-      '1 Vor-Ort-Termin nach 8 Monaten inklusive'
+      'Vor-Ort-Termin verfügbar nach 8 Monaten ununterbrochener Mitgliedschaft'
     ],
     notIncluded: [
       'Vor-Ort-Service (vor 8 Monaten)',
@@ -161,7 +161,7 @@ export const packages: Package[] = [
       'Prioritäts-Support',
       'Persönlicher Ansprechpartner',
       'Erweiterte Datenrettung',
-      '1 Vor-Ort-Termin nach 4 Monaten inklusive'
+      'Vor-Ort-Termin verfügbar nach 4 Monaten ununterbrochener Mitgliedschaft'
     ],
     notIncluded: [
       'Vor-Ort-Service (vor 4 Monaten)',
@@ -220,7 +220,7 @@ export const packages: Package[] = [
       'Fernwartung DSGVO-konform (2-Faktor)',
       'Halbjährlicher vCIO-Check (30 Min.)',
       'Unbegrenzter Remote-Support (fairer Gebrauch)',
-      '1 Vor-Ort-Termin nach 12 Monaten inklusive'
+      'Vor-Ort-Termin verfügbar nach 12 Monaten ununterbrochener Mitgliedschaft'
     ],
     notIncluded: [
       'Projektarbeiten',
@@ -279,7 +279,7 @@ export const packages: Package[] = [
       'Verwaltetes Cloud-Backup (100 GB pro Gerät)',
       'Quartalsbericht & Roadmap-Empfehlungen',
       'Priorisierter Support',
-      '1 Vor-Ort-Termin nach 8 Monaten inklusive'
+      'Vor-Ort-Termin verfügbar nach 8 Monaten ununterbrochener Mitgliedschaft'
     ],
     notIncluded: [
       'Projektarbeiten',
@@ -336,7 +336,7 @@ export const packages: Package[] = [
       'Erweitertes Security-Paket (EDR/Anti-Phishing)',
       'Netzwerk-/WLAN-Optimierung standortweit',
       'Persönlicher Ansprechpartner',
-      'Bis zu 3 Vor-Ort-Termine, der erste nach 4 Monaten inklusive'
+      'Bis zu 3 Vor-Ort-Termine, der erste verfügbar nach 4 Monaten ununterbrochener Mitgliedschaft'
     ],
     notIncluded: [
       'Projektarbeiten',

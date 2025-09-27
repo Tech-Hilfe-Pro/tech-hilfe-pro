@@ -127,6 +127,16 @@ const PricingDetailsModal = ({ package: pkg, isOpen, onClose }: PricingDetailsMo
             <p className="text-sm text-muted-foreground leading-relaxed">
               {fairUseText}
             </p>
+            <p className="text-xs text-muted-foreground mt-3">
+              Bedingungen zu Fair-Use und Vor-Ort-Terminen sind Bestandteil der <a href="/agb" className="text-primary hover:text-primary/80 underline">AGB</a>.
+            </p>
+          </div>
+
+          {/* Final AGB Reference */}
+          <div className="text-center pt-4 border-t border-border">
+            <p className="text-xs text-muted-foreground">
+              Alle Leistungen und Bedingungen sind in den <a href="/agb" className="text-primary hover:text-primary/80 underline">Allgemeinen Geschäftsbedingungen (AGB)</a> geregelt.
+            </p>
           </div>
         </div>
       </div>
