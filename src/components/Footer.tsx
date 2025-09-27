@@ -54,7 +54,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <img src="/favicon.png" alt="Tech Hilfe Pro" className="h-8 w-8" />
+              <img src="/fh-logo.png" alt="Tech Hilfe Pro" className="h-8 w-8" />
               <span className="text-xl font-semibold">Tech Hilfe Pro</span>
             </div>
             <p className="text-neutral-400 mb-6 max-w-md">
