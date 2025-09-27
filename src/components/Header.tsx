@@ -1,22 +1,110 @@
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import WhatsAppIcon from "@/assets/whatsapp.svg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout>();
 
   const navigation = [
     { name: "Startseite", href: "/" },
     { name: "Vorteile", href: "/vorteile" },
-    { name: "Pakete", href: "/pakete" },
     { name: "Über uns", href: "/about" },
     { name: "Kontakt", href: "/kontakt" },
     { name: "Impressum", href: "/impressum" },
     { name: "AGB", href: "/agb" },
   ];
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = useCallback(() => {
+    setIsMenuOpen(false);
+    // Return focus to menu button
+    setTimeout(() => {
+      menuButtonRef.current?.focus();
+    }, 100);
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Handle scroll for header visibility and menu auto-close
+  const handleScroll = useCallback(() => {
+    const currentScrollY = window.scrollY;
+    
+    // Auto-close menu if scrolled more than 20px
+    if (isMenuOpen && Math.abs(currentScrollY - lastScrollY) > 20) {
+      closeMenu();
+    }
+
+    // Show/hide header based on scroll direction
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      // Scrolling down
+      setIsHeaderVisible(false);
+    } else {
+      // Scrolling up or at top
+      setIsHeaderVisible(true);
+    }
+
+    setLastScrollY(currentScrollY);
+  }, [isMenuOpen, lastScrollY, closeMenu]);
+
+  // Throttled scroll handler
+  const throttledScrollHandler = useCallback(() => {
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+    scrollTimeoutRef.current = setTimeout(handleScroll, 100);
+  }, [handleScroll]);
+
+  // Handle click outside
+  const handleClickOutside = useCallback((event: MouseEvent) => {
+    const target = event.target as Element;
+    if (isMenuOpen && !target.closest('header')) {
+      closeMenu();
+    }
+  }, [isMenuOpen, closeMenu]);
+
+  // Handle ESC key
+  const handleKeyDown = useCallback((event: KeyboardEvent) => {
+    if (event.key === 'Escape' && isMenuOpen) {
+      closeMenu();
+    }
+  }, [isMenuOpen, closeMenu]);
+
+  useEffect(() => {
+    // Body scroll lock
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    // Add scroll listener
+    window.addEventListener('scroll', throttledScrollHandler, { passive: true });
+    
+    // Add click outside and ESC listeners
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('scroll', throttledScrollHandler);
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, [throttledScrollHandler, handleClickOutside, handleKeyDown]);
 
   const handleWhatsApp = () => {
     if (typeof window !== 'undefined' && window.umami) {
@@ -26,7 +114,13 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-white/80 backdrop-blur-lg">
+    <header 
+      className={`sticky top-0 z-50 w-full border-b border-border bg-white/80 backdrop-blur-lg transition-transform duration-200 ${
+        isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
+      } ${
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches ? '' : 'ease-out'
+      }`}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -72,9 +166,11 @@ const Header = () => {
 
           {/* Mobile menu button */}
           <button
+            ref={menuButtonRef}
             onClick={toggleMenu}
             className="md:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors"
-            aria-label="Menü öffnen"
+            aria-label={isMenuOpen ? "Menü schließen" : "Menü öffnen"}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" />
@@ -86,14 +182,20 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-border bg-white">
+          <div 
+            className={`md:hidden border-t border-border bg-white transition-all duration-200 ${
+              window.matchMedia('(prefers-reduced-motion: reduce)').matches ? '' : 'ease-out'
+            } ${
+              isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+            }`}
+          >
             <div className="px-2 py-3 space-y-1">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   className="block px-3 py-2 rounded-lg text-base font-medium text-foreground hover:bg-neutral-50"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={closeMenu}
                 >
                   {item.name}
                 </Link>
@@ -103,12 +205,16 @@ const Header = () => {
                   href="tel:+4915565029989"
                   className="flex items-center gap-2 text-foreground hover:text-accent"
                   aria-label="Anrufen"
+                  onClick={closeMenu}
                 >
                   <Phone className="h-4 w-4" />
                   +49 1556 5029989
                 </a>
                 <button
-                  onClick={handleWhatsApp}
+                  onClick={() => {
+                    handleWhatsApp();
+                    closeMenu();
+                  }}
                   className="btn-whatsapp w-full justify-center"
                   aria-label="Chat auf WhatsApp starten"
                 >
