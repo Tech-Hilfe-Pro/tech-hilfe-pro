@@ -31,7 +31,7 @@ const PricingCard = ({
   const dataCheckout = `${segment}-${planName}-${billingCycle}`;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-card border border-border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 h-full min-h-[600px] flex flex-col">
+    <div data-testid="pricing-card" className="relative overflow-hidden rounded-2xl bg-card border border-border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 h-full min-h-[600px] flex flex-col">
       <div className="p-6 flex-1 flex flex-col">
         {/* Badge */}
         <div className="h-8 flex items-center justify-center mb-4">
