@@ -134,6 +134,13 @@ const PricingCard = ({
           </button>
         </div>
         
+        {/* Legal Notice */}
+        <div className="mb-4">
+          <p className="text-xs text-muted-foreground text-center leading-relaxed">
+            Bitte <a href="/datenschutz" className="text-primary hover:text-primary/80 underline">Datenschutzerklärung</a> und <a href="/agb" className="text-primary hover:text-primary/80 underline">AGB</a> lesen.
+          </p>
+        </div>
+        
         {/* Footer Note */}
         <div className="text-xs text-muted-foreground text-center leading-relaxed border-t border-border pt-3">
           Fernzugriff nur nach Einwilligung; 2-Faktor-Schutz aktiv.

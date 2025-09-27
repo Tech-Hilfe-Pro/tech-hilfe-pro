@@ -145,8 +145,11 @@ const PricingDetailsModal = ({ package: pkg, isOpen, onClose }: PricingDetailsMo
             </div>
           </div>
 
-          {/* Final AGB Reference */}
+          {/* Final Legal Notice */}
           <div className="text-center pt-4 border-t border-border">
+            <p className="text-xs text-muted-foreground mb-2">
+              Bitte <a href="/datenschutz" className="text-primary hover:text-primary/80 underline">Datenschutzerklärung</a> und <a href="/agb" className="text-primary hover:text-primary/80 underline">AGB</a> lesen.
+            </p>
             <p className="text-xs text-muted-foreground">
               Alle Leistungen und Bedingungen sind in den <a href="/agb" className="text-primary hover:text-primary/80 underline">Allgemeinen Geschäftsbedingungen (AGB)</a> geregelt.
             </p>
