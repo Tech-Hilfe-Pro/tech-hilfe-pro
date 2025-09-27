@@ -17,9 +17,7 @@ const PricingDetailsModal = ({ package: pkg, isOpen, onClose }: PricingDetailsMo
     return <CheckCircle className="h-4 w-4 text-blue-500" />;
   };
 
-  const fairUseText = pkg.segment === 'privat' 
-    ? "Fair-Use-Policy: Unbegrenzter Remote-Support bedeutet fairer Gebrauch. Bei dauerhaft deutlich überdurchschnittlicher Nutzung empfehlen wir Schulung, Ursachenbehebung oder ein Upgrade. Unser Ziel ist es, Ihre IT proaktiv zu betreuen, nicht permanent Notfälle zu beheben."
-    : "Fair-Use-Policy: Unbegrenzter Remote-Support bedeutet fairer Gebrauch. Bei dauerhaft deutlich überdurchschnittlicher Nutzung empfehlen wir Schulung, Ursachenbehebung oder ein Upgrade. Unser Ziel ist es, Ihre IT proaktiv zu betreuen, nicht permanent Notfälle zu beheben.";
+  const fairUseText = "Fair-Use-Policy: Unbegrenzter Remote-Support bedeutet fairer Gebrauch (≤ 3 Fälle/Monat, je ≤ 45 Min.). Bei dauerhaft deutlich überdurchschnittlicher Nutzung empfehlen wir Schulung, Ursachenbehebung oder ein Upgrade. Unser Ziel ist es, Ihre IT proaktiv zu betreuen, nicht permanent Notfälle zu beheben.";
 
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
@@ -119,17 +117,32 @@ const PricingDetailsModal = ({ package: pkg, isOpen, onClose }: PricingDetailsMo
             </p>
           </div>
 
-          {/* Fair Use Policy */}
-          <div className="bg-muted rounded-lg p-4">
-            <h3 className="text-sm font-semibold text-foreground mb-2">
-              Fair-Use-Policy
-            </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              {fairUseText}
-            </p>
-            <p className="text-xs text-muted-foreground mt-3">
-              Bedingungen zu Fair-Use und Vor-Ort-Terminen sind Bestandteil der <a href="/agb" className="text-primary hover:text-primary/80 underline">AGB</a>.
-            </p>
+          {/* Fair Use Policy & Onsite Terms */}
+          <div className="space-y-4">
+            <div className="bg-muted rounded-lg p-4">
+              <h3 className="text-sm font-semibold text-foreground mb-2">
+                Fair-Use-Policy
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {fairUseText}
+              </p>
+            </div>
+            
+            <div className="bg-accent/5 rounded-lg p-4 border border-accent/20">
+              <h3 className="text-sm font-semibold text-foreground mb-2">
+                Vor-Ort-Service
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Vor-Ort-Termine sind erst nach {pkg.onsiteUnlockAfterMonths} Monaten ununterbrochener Mitgliedschaft verfügbar. 
+                {pkg.segment === 'privat' 
+                  ? ` Maximal ${pkg.deviceLimit} Geräte abgedeckt.`
+                  : ` Maximal ${pkg.userLimit} Arbeitsplätze abgedeckt.`
+                }
+              </p>
+              <p className="text-xs text-muted-foreground mt-3">
+                Bedingungen zu Fair-Use und Vor-Ort-Terminen sind Bestandteil der <a href="/agb" className="text-primary hover:text-primary/80 underline">AGB</a>.
+              </p>
+            </div>
           </div>
 
           {/* Final AGB Reference */}

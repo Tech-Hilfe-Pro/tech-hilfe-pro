@@ -18,6 +18,11 @@ export type Package = {
     responseTime: string;
     resolutionTime: string;
   }[];
+  tier: 'S' | 'M' | 'L';
+  onsiteIncluded: number;
+  onsiteUnlockAfterMonths: number;
+  deviceLimit?: number; // Nur für Privat
+  userLimit?: number;   // Nur für KMU
 };
 
 export const packages: Package[] = [
@@ -32,6 +37,10 @@ export const packages: Package[] = [
     yearlyPrice: 13, // 15% Rabatt
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
     cta: 'Jetzt starten',
+    tier: 'S',
+    onsiteIncluded: 1,
+    onsiteUnlockAfterMonths: 12,
+    deviceLimit: 2,
     keyDifferences: [
       'Remote-Support werktags 9-17 Uhr',
       'E-Mail & Chat-Support',
@@ -90,6 +99,10 @@ export const packages: Package[] = [
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
     badge: 'Beliebteste Wahl',
     cta: 'Jetzt starten',
+    tier: 'M',
+    onsiteIncluded: 1,
+    onsiteUnlockAfterMonths: 8,
+    deviceLimit: 5,
     keyDifferences: [
       'Erweiterte Support-Zeiten bis 20 Uhr',
       'WhatsApp-Support inklusive',
@@ -149,6 +162,10 @@ export const packages: Package[] = [
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
     badge: 'Bester Gegenwert',
     cta: 'Jetzt starten',
+    tier: 'L',
+    onsiteIncluded: 1,
+    onsiteUnlockAfterMonths: 4,
+    deviceLimit: 10,
     keyDifferences: [
       'Support auch am Wochenende',
       '1 Vor-Ort-Termin pro Jahr inklusive',
@@ -208,6 +225,10 @@ export const packages: Package[] = [
     yearlyPrice: 25, // 15% Rabatt
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
     cta: 'Jetzt starten',
+    tier: 'S',
+    onsiteIncluded: 1,
+    onsiteUnlockAfterMonths: 12,
+    userLimit: 10,
     keyDifferences: [
       'Standard-SLA: Reaktion bis zum nächsten Werktag',
       'Keine Vor-Ort-Termine inklusive',
@@ -268,6 +289,10 @@ export const packages: Package[] = [
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
     badge: 'Beliebteste Wahl',
     cta: 'Jetzt starten',
+    tier: 'M',
+    onsiteIncluded: 1,
+    onsiteUnlockAfterMonths: 8,
+    userLimit: 25,
     keyDifferences: [
       'Beschleunigte SLA: Reaktion unter 4 Stunden',
       'Quartalsweise Vor-Ort-Termine inklusive',
@@ -325,6 +350,10 @@ export const packages: Package[] = [
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
     badge: 'Bester Gegenwert',
     cta: 'Jetzt starten',
+    tier: 'L',
+    onsiteIncluded: 3,
+    onsiteUnlockAfterMonths: 4,
+    userLimit: 50,
     keyDifferences: [
       'Premium-SLA: 24/7-Notfallnummer verfügbar',
       'Bis zu 3 Vor-Ort-Einsätze pro Jahr inklusive',

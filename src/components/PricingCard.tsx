@@ -63,10 +63,10 @@ const PricingCard = ({
           {/* Price */}
           <div className="mb-3">
             <div className="text-2xl font-bold text-foreground">
-              {price} €{pkg.segment === 'kmu' ? ' / Arbeitsplatz' : ''}
+              {price} €{pkg.segment === 'kmu' ? ' / Arbeitsplatz / Monat' : ' / Monat'}
             </div>
             <div className="text-sm text-muted-foreground">
-              {isYearly ? 'pro Monat (jährlich)' : 'pro Monat'}
+              {isYearly ? 'jährlich abgerechnet' : 'monatlich abgerechnet'}
             </div>
           </div>
           
@@ -74,6 +74,20 @@ const PricingCard = ({
           <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
             Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar. Bitte <a href="/agb" className="text-primary hover:text-primary/80 underline">AGB</a> lesen.
           </p>
+          
+          {/* Onsite Notice */}
+          <div className="mb-3 p-3 bg-muted rounded-lg">
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Vor-Ort-Termin erst nach {pkg.onsiteUnlockAfterMonths} Monaten ununterbrochener Mitgliedschaft verfügbar.
+            </p>
+          </div>
+          
+          {/* Fair Use Notice */}
+          <div className="mb-3 p-3 bg-accent/5 rounded-lg border border-accent/20">
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Fair-Use: ≤ 3 Fälle/Monat, je ≤ 45 Min. Bei Überschreitung empfehlen wir Schulung oder Upgrade.
+            </p>
+          </div>
           
           {/* Promo Space - Reserve space for consistency */}
           <div className="h-5 mb-2">
