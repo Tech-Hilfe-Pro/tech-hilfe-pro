@@ -63,7 +63,7 @@ const PricingCard = ({
           {/* Price */}
           <div className="mb-3">
             <div className="text-2xl font-bold text-foreground">
-              {price} €
+              {price} €{pkg.segment === 'kmu' ? ' / Arbeitsplatz' : ''}
             </div>
             <div className="text-sm text-muted-foreground">
               {isYearly ? 'pro Monat (jährlich)' : 'pro Monat'}

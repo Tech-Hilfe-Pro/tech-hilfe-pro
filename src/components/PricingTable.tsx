@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { packages } from "@/data/packages";
-import KMUPackageCard from "./KMUPackageCard";
-import PackageDetailsModal from "./PackageDetailsModal";
+import PricingCard from "./PricingCard";
+import PricingDetailsModal from "./PricingDetailsModal";
 
 const PricingTable = () => {
   const [isYearly, setIsYearly] = useState(false);
@@ -70,12 +70,13 @@ const PricingTable = () => {
           {/* Package Cards */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             {kmuPackages.map((pkg) => (
-              <KMUPackageCard
+              <PricingCard
                 key={pkg.slug}
                 package={pkg}
                 isYearly={isYearly}
                 onCTAClick={handleConsultation}
                 onDetailsClick={() => setSelectedPackage(pkg)}
+                onConsultationClick={handleConsultation}
               />
             ))}
           </div>
@@ -103,7 +104,7 @@ const PricingTable = () => {
 
       {/* Details Modal */}
       {selectedPackage && (
-        <PackageDetailsModal
+        <PricingDetailsModal
           package={selectedPackage}
           isOpen={!!selectedPackage}
           onClose={() => setSelectedPackage(null)}
