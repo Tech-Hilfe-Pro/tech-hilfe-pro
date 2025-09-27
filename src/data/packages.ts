@@ -137,7 +137,7 @@ export const packages: Package[] = [
   },
   {
     segment: 'privat',
-    slug: 'privat-familie',
+    slug: 'privat-familieplus',
     name: 'Sorglos Digital – Familie+',
     subtitle: 'Für große Haushalte & Power-User',
     positioning: 'Maximaler Schutz mit persönlicher Betreuung.',

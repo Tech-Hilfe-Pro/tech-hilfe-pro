@@ -23,7 +23,7 @@ const PricingCard = ({
   const segment = pkg.segment === 'privat' ? 'privat' : 'kmu';
   let planName = pkg.slug.split('-').pop() || '';
   // Map plan names correctly
-  if (planName === 'familie') planName = 'familieplus';
+  if (planName === 'familieplus') planName = 'familieplus';
   if (planName === 'essential') planName = 'essential';
   if (planName === 'smart') planName = 'smart';
   if (planName === '360') planName = '360';
