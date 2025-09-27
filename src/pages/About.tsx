@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, MessageCircle, CheckCircle } from "lucide-react";
+import { ArrowLeft, MessageCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppIcon from "@/assets/whatsapp.svg";
@@ -66,9 +66,11 @@ const About = () => {
               Zurück zur Startseite
             </Link>
             
-            <h1 className="text-hero mb-4">Ihr IT-Partner aus Köln – persönlich, klar, zuverlässig</h1>
-            <p className="text-subtitle">
-              Tech Hilfe Pro steht für proaktive IT-Betreuung mit verständlicher Sprache und planbaren Kosten.
+            <h1 className="text-hero mb-6">Über uns</h1>
+            <p className="text-xl font-medium text-foreground max-w-3xl leading-relaxed">
+              <strong>Tech Hilfe Pro – Ihr IT-Partner in Köln, Neuss & Umgebung.</strong><br />
+              Wir machen Technik verständlich, zuverlässig und bezahlbar – für 
+              Privathaushalte, Homeoffice-Profis und Micro-KMU.
             </p>
           </div>
         </section>
@@ -76,91 +78,160 @@ const About = () => {
         {/* Content */}
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-3 gap-12">
-              <div className="lg:col-span-2 space-y-8">
-                {/* Main Content */}
-                <div className="prose prose-lg max-w-none">
-                  <p className="text-lg leading-relaxed text-foreground">
-                    Tech Hilfe Pro steht für proaktive IT-Betreuung mit verständlicher Sprache und planbaren Kosten. 
-                    Wir kombinieren Erfahrung aus Vor-Ort-Einsätzen mit modernen Managed-Service-Prinzipien – 
-                    für Privatkunden und KMU.
-                  </p>
-                  
-                  <p className="text-lg leading-relaxed text-foreground">
-                    Geleitet von <strong>José Carlos Martin Lache</strong>, fokussieren wir uns auf Stabilität, 
-                    Sicherheit und kurze Reaktionszeiten. Wir erklären ohne Fachjargon, dokumentieren sauber 
-                    und handeln vorausschauend.
-                  </p>
-                </div>
+            <div className="space-y-12">
+              
+              {/* Mission */}
+              <div>
+                <h2 className="text-3xl font-semibold mb-4 text-foreground">Unsere Mission</h2>
+                <p className="text-lg leading-relaxed text-foreground max-w-3xl">
+                  Technik soll einfach laufen: sicher, planbar und ohne Überraschungen. 
+                  Wir kombinieren geduldige Hilfe vor Ort mit schneller Fernwartung und klaren Preisen.
+                </p>
+              </div>
 
-                {/* Trust Points */}
-                <div className="grid md:grid-cols-2 gap-6">
-                  {[
-                    "Feste Ansprechpartner",
-                    "Klare Pakete statt Überraschungen", 
-                    "Datenschutz ernst genommen (DSGVO)",
-                    "Lokal erreichbar: Köln & Umgebung"
-                  ].map((point, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="h-6 w-6 text-success flex-shrink-0 mt-0.5" />
-                      <span className="text-foreground">{point}</span>
-                    </div>
-                  ))}
-                </div>
+              {/* Wofür wir stehen */}
+              <div>
+                <h2 className="text-3xl font-semibold mb-6 text-foreground">Wofür wir stehen</h2>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">Nähe:</span>
+                    <span className="text-foreground">Köln, Neuss & Umgebung. Persönlich, verlässlich.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">Proaktiv:</span>
+                    <span className="text-foreground">Updates, Backups, Security statt Feuerlöschen.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">Transparenz:</span>
+                    <span className="text-foreground">klare Leistungen, feste Paketpreise, monatlich kündbar.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">Geduld:</span>
+                    <span className="text-foreground">besonders wichtig bei Seniorinnen und Senioren.</span>
+                  </li>
+                </ul>
+              </div>
 
-                {/* Contact Info */}
-                <div className="bg-neutral-50 rounded-2xl p-8">
-                  <h2 className="text-2xl font-semibold mb-6 text-foreground">Kontakt & Erreichbarkeit</h2>
-                  <div className="grid md:grid-cols-2 gap-6">
+              {/* Was Sie konkret bekommen */}
+              <div>
+                <h2 className="text-3xl font-semibold mb-6 text-foreground">Was Sie konkret bekommen</h2>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">Einrichtung & Umzug:</span>
+                    <span className="text-foreground">PC/Mac, E-Mail, Cloud, NAS, Drucker, Daten-Umzug.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">Sicherheit:</span>
+                    <span className="text-foreground">Virenschutz, Firewall, VPN, Passwort-Manager, Updates & Patches.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">Netzwerk:</span>
+                    <span className="text-foreground">WLAN-Analyse, Mesh, Router-Setup, LAN-Verkabelung, Gastnetz.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">Backup & Rettung:</span>
+                    <span className="text-foreground">Cloud-Backup, NAS-Backup, Wiederherstellung, Foto-Archiv.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">TV & Streaming:</span>
+                    <span className="text-foreground">Senderliste einrichten/ordnen, Kabel/Sat/IPTV, Apps (z. B. ARD/ZDF, Netflix, Prime), Fernbedienungen & Sound.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">Soforthilfe:</span>
+                    <span className="text-foreground">Fernwartung oder Vor-Ort – meist am selben Tag.</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* So arbeiten wir */}
+              <div>
+                <h2 className="text-3xl font-semibold mb-6 text-foreground">So arbeiten wir</h2>
+                <ol className="space-y-4">
+                  <li className="flex items-start gap-4">
+                    <span className="text-accent font-bold text-lg min-w-0">1.</span>
                     <div>
-                      <h3 className="font-semibold mb-3 text-foreground">Kontaktdaten</h3>
-                      <div className="space-y-2 text-muted-foreground">
-                        <p>José Carlos Martin Lache</p>
-                        <p>kontakt@techhilfepro.de</p>
-                        <p>+49 1556 5029989</p>
-                      </div>
+                      <h3 className="font-semibold text-foreground mb-1">Kurzes Erstgespräch:</h3>
+                      <p className="text-foreground">Problem, Ziel, Termin. 10-Min-Erstdiagnose kostenlos per Telefon/WhatsApp.</p>
                     </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <span className="text-accent font-bold text-lg min-w-0">2.</span>
                     <div>
-                      <h3 className="font-semibold mb-3 text-foreground">Servicegebiet</h3>
-                      <div className="space-y-2 text-muted-foreground">
-                        <p>Köln & Umgebung</p>
-                        <p>Remote-Support deutschlandweit</p>
-                      </div>
+                      <h3 className="font-semibold text-foreground mb-1">Diagnose remote oder vor Ort:</h3>
+                      <p className="text-foreground">Remote zuerst (schneller, günstiger, ohne Anfahrt). Vor Ort, wenn Hardware/Empfang/Verkabelung betroffen ist.</p>
                     </div>
-                  </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <span className="text-accent font-bold text-lg min-w-0">3.</span>
+                    <div>
+                      <h3 className="font-semibold text-foreground mb-1">Fix + Absicherung:</h3>
+                      <p className="text-foreground">Lösung umsetzen, Updates & Schutz aktivieren; kurze Einweisung auf Wunsch.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <span className="text-accent font-bold text-lg min-w-0">4.</span>
+                    <div>
+                      <h3 className="font-semibold text-foreground mb-1">Nachweis & Tipps:</h3>
+                      <p className="text-foreground">kurze, verständliche Doku mit den wichtigsten Änderungen und Empfehlungen.</p>
+                    </div>
+                  </li>
+                </ol>
+                
+                <div className="mt-6 p-6 bg-neutral-50 rounded-2xl">
+                  <p className="text-foreground">
+                    <strong>Ihre Vorteile:</strong> weniger Wartezeit, Festpreise vor Start, 
+                    kein Fachchinesisch, ein fester Ansprechpartner.
+                  </p>
                 </div>
               </div>
 
-              {/* Sticky Sidebar - Desktop */}
-              <div className="lg:col-span-1">
-                <div className="sticky top-24 bg-white border border-border rounded-2xl p-6 shadow-sm">
-                  <h3 className="font-semibold mb-4">Jetzt starten</h3>
-                  <p className="text-sm text-muted-foreground mb-6">
-                    Lassen Sie uns über Ihre IT-Herausforderungen sprechen.
+              {/* Belege statt Versprechen */}
+              <div>
+                <h2 className="text-3xl font-semibold mb-6 text-foreground">Belege statt Versprechen</h2>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">Reaktionszeit:</span>
+                    <span className="text-foreground">in der Regel &lt; 24 h in Köln &amp; Neuss, remote oft &lt; 2 h.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">Feste Paketpreise</span>
+                    <span className="text-foreground">statt „mal sehen"; Kostendeckel vorab.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">Zufriedenheitsgarantie:</span>
+                    <span className="text-foreground">14 Tage bei Abos, 7 Tage bei Einzelleistungen.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">No-Fix-No-Fee:</span>
+                    <span className="text-foreground">keine Kosten bei erfolgloser Ersthilfe (bis 30 Min remote).</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-accent font-semibold min-w-0">DSGVO-konform:</span>
+                    <span className="text-foreground">Zugriff nur mit Einwilligung, keine Datenkopien ohne Rücksprache.</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Kontakt */}
+              <div className="bg-neutral-50 rounded-2xl p-8">
+                <h2 className="text-3xl font-semibold mb-6 text-foreground">Kontakt</h2>
+                <div className="space-y-2 mb-6">
+                  <p className="text-foreground">
+                    Telefon: <strong className="text-accent">+49 155 65029989</strong> &middot;{" "}
+                    E-Mail: <strong className="text-accent">kontakt@techhilfepro.de</strong>
                   </p>
-                  <div className="space-y-3">
-                    <button
-                      onClick={handleConsultation}
-                      className="btn-hero w-full"
-                    >
-                      Kostenlose Erstberatung
-                    </button>
-                    <button
-                      onClick={handleWhatsApp}
-                      className="btn-whatsapp w-full justify-center"
-                      aria-label="Chat auf WhatsApp starten"
-                    >
-                      <img src={WhatsAppIcon} alt="WhatsApp" className="h-4 w-4" />
-                      WhatsApp Chat
-                    </button>
-                  </div>
-                  
-                  <div className="mt-6 pt-6 border-t border-border text-center">
-                    <p className="text-xs text-muted-foreground">
-                      Schnelle Antwort garantiert
-                    </p>
-                  </div>
+                  <p className="text-muted-foreground">
+                    Mo–Fr 9–19 Uhr, Notfälle nach Absprache.
+                  </p>
                 </div>
+                
+                <Link
+                  to="/kontakt"
+                  onClick={handleConsultation}
+                  className="btn-hero inline-flex items-center gap-2"
+                >
+                  Jetzt anfragen
+                </Link>
               </div>
             </div>
           </div>
