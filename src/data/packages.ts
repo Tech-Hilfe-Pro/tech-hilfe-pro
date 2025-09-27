@@ -16,8 +16,8 @@ export const packages: Package[] = [
   // ---------- PRIVAT (HOME CARE) ----------
   {
     segment: 'privat',
-    slug: 'home-care-solo',
-    name: 'HOME CARE Solo',
+    slug: 'sorglos-digital-solo',
+    name: 'Sorglos Digital – Solo',
     subtitle: 'Persönliche IT-Hilfe für Einzelnutzer',
     price: '9 € / Monat',
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
@@ -35,8 +35,8 @@ export const packages: Package[] = [
   },
   {
     segment: 'privat',
-    slug: 'home-care-home',
-    name: 'HOME CARE Home',
+    slug: 'sorglos-digital-zuhause',
+    name: 'Sorglos Digital – Zuhause',
     subtitle: 'Komplette IT-Betreuung für Ihr Zuhause',
     price: '19 € / Monat',
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
@@ -55,8 +55,8 @@ export const packages: Package[] = [
   },
   {
     segment: 'privat',
-    slug: 'home-care-familie-plus',
-    name: 'HOME CARE Familie+',
+    slug: 'sorglos-digital-familie-plus',
+    name: 'Sorglos Digital – Familie+',
     subtitle: 'Rundum-Schutz & Proaktiv-Service für Familien',
     price: '29 € / Monat',
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
@@ -77,8 +77,8 @@ export const packages: Package[] = [
   // ---------- KMU (BUSINESS CARE) ----------
   {
     segment: 'kmu',
-    slug: 'business-care-essential',
-    name: 'BUSINESS CARE Essential',
+    slug: 'kmu-flow-essential',
+    name: 'KMU-Flow – Essential',
     subtitle: 'Stabile Basis für 1–10 Mitarbeitende',
     price: 'ab 29 € / Monat je Arbeitsplatz',
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
@@ -96,8 +96,8 @@ export const packages: Package[] = [
   },
   {
     segment: 'kmu',
-    slug: 'business-care-smart',
-    name: 'BUSINESS CARE Smart',
+    slug: 'kmu-flow-smart',
+    name: 'KMU-Flow – Smart',
     subtitle: 'Proaktive Betreuung mit Vor-Ort-Leistung',
     price: 'ab 59 € / Monat je Arbeitsplatz',
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
@@ -115,8 +115,8 @@ export const packages: Package[] = [
   },
   {
     segment: 'kmu',
-    slug: 'business-care-360',
-    name: 'BUSINESS CARE 360°',
+    slug: 'kmu-flow-360',
+    name: 'KMU-Flow – 360°',
     subtitle: 'Rundum-Sorglos für Micro-Unternehmen',
     price: 'ab 99 € / Monat je Arbeitsplatz',
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
