@@ -38,15 +38,16 @@ export const packages: Package[] = [
       'Basis-Sicherheitscheck monatlich'
     ],
     included: [
-      'Remote-Support werktags',
+      'Unbegrenzter Remote-Support werktags (9-17 Uhr)',
       'E-Mail & Chat-Support',
       'Monatlicher Sicherheitscheck',
       'Software-Updates',
-      'Basis-Virenschutz'
+      'Basis-Virenschutz',
+      '1 Vor-Ort-Termin nach 12 Monaten inklusive'
     ],
     notIncluded: [
-      'Vor-Ort-Service',
-      'Abend-/Wochenend-Support',
+      'Vor-Ort-Service (vor 12 Monaten)',
+      'Abend- & Wochenend-Support',
       'Hardware-Beschaffung',
       'Datenrettung',
       'Express-Support'
@@ -95,18 +96,20 @@ export const packages: Package[] = [
       'Quartalsweise Gesundheitschecks'
     ],
     included: [
-      'Alles aus Solo',
-      'Erweiterte Support-Zeiten (9-20 Uhr)',
+      'Alles aus Solo (ohne Vor-Ort nach 12 Mon.)',
+      'Unbegrenzter Remote-Support (9-20 Uhr)',
       'WhatsApp-Support',
       'Quartalsweise Gesundheitschecks',
       'Netzwerk-Optimierung',
-      'Backup-Beratung'
+      'Backup-Beratung',
+      '1 Vor-Ort-Termin nach 8 Monaten inklusive'
     ],
     notIncluded: [
-      'Vor-Ort-Service',
-      'Wochenend-Support',
+      'Vor-Ort-Service (vor 8 Monaten)',
+      'Abend- & Wochenend-Support',
       'Hardware-Beschaffung',
-      'Datenrettung bei Defekt'
+      'Datenrettung',
+      'Express-Support'
     ],
     slaMatrix: [
       {
@@ -152,17 +155,20 @@ export const packages: Package[] = [
       'Prioritäts-Support mit fester Ansprechperson'
     ],
     included: [
-      'Alles aus Zuhause',
+      'Alles aus Zuhause (ohne Vor-Ort nach 8 Mon.)',
+      'Unbegrenzter Remote-Support + Wochenende',
       'Wochenend-Support (Sa 10-16 Uhr)',
-      '1 Vor-Ort-Termin/Jahr inklusive',
       'Prioritäts-Support',
       'Persönlicher Ansprechpartner',
-      'Erweiterte Datenrettung'
+      'Erweiterte Datenrettung',
+      '1 Vor-Ort-Termin nach 4 Monaten inklusive'
     ],
     notIncluded: [
-      'Zusätzliche Vor-Ort-Einsätze',
-      '24/7-Support',
-      'Hardware-Beschaffung'
+      'Vor-Ort-Service (vor 4 Monaten)',
+      'Abend- & Wochenend-Support',
+      'Hardware-Beschaffung',
+      'Datenrettung',
+      'Express-Support'
     ],
     slaMatrix: [
       {

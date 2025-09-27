@@ -11,15 +11,15 @@ const PricingDetailsModal = ({ package: pkg, isOpen, onClose }: PricingDetailsMo
   if (!isOpen) return null;
 
   const getPriorityIcon = (priority: string) => {
-    if (priority.includes('P1')) return <AlertCircle className="h-4 w-4 text-red-500" />;
-    if (priority.includes('P2')) return <Zap className="h-4 w-4 text-orange-500" />;
-    if (priority.includes('P3')) return <Clock className="h-4 w-4 text-blue-500" />;
-    return <CheckCircle className="h-4 w-4 text-green-500" />;
+    if (priority.includes('P1')) return <Zap className="h-4 w-4 text-red-500" />;
+    if (priority.includes('P2')) return <AlertCircle className="h-4 w-4 text-orange-500" />;
+    if (priority.includes('P3')) return <Clock className="h-4 w-4 text-yellow-500" />;
+    return <CheckCircle className="h-4 w-4 text-blue-500" />;
   };
 
   const fairUseText = pkg.segment === 'privat' 
-    ? "Fair-Use-Policy: Wir unterstützen Sie gerne bei alltäglichen IT-Problemen. Bei außergewöhnlich hohem Aufwand behalten wir uns vor, eine Lösung gemeinsam zu finden oder zusätzliche Leistungen separat anzubieten."
-    : "Fair-Use-Policy: Unsere KMU-Pakete sind für den normalen Geschäftsbetrieb ausgelegt. Bei außergewöhnlichen Projekten oder überdurchschnittlichem Support-Bedarf entwickeln wir gerne individuelle Lösungen.";
+    ? "Fair-Use-Policy: Unbegrenzter Remote-Support bedeutet fairer Gebrauch. Bei dauerhaft deutlich überdurchschnittlicher Nutzung empfehlen wir Schulung, Ursachenbehebung oder ein Upgrade. Unser Ziel ist es, Ihre IT proaktiv zu betreuen, nicht permanent Notfälle zu beheben."
+    : "Fair-Use-Policy: Unbegrenzter Remote-Support bedeutet fairer Gebrauch. Bei dauerhaft deutlich überdurchschnittlicher Nutzung empfehlen wir Schulung, Ursachenbehebung oder ein Upgrade. Unser Ziel ist es, Ihre IT proaktiv zu betreuen, nicht permanent Notfälle zu beheben.";
 
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
