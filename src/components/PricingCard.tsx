@@ -21,7 +21,12 @@ const PricingCard = ({
   
   // Generate data-checkout attribute
   const segment = pkg.segment === 'privat' ? 'privat' : 'kmu';
-  const planName = pkg.slug.split('-').pop(); // Get last part (solo, zuhause, familie, essential, smart, 360)
+  let planName = pkg.slug.split('-').pop() || '';
+  // Map plan names correctly
+  if (planName === 'familie') planName = 'familieplus';
+  if (planName === 'essential') planName = 'essential';
+  if (planName === 'smart') planName = 'smart';
+  if (planName === '360') planName = '360';
   const billingCycle = isYearly ? 'y' : 'm';
   const dataCheckout = `${segment}-${planName}-${billingCycle}`;
 

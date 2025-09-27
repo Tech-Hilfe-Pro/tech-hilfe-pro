@@ -134,34 +134,46 @@ const Packages = () => {
 
               {/* Privat Packages */}
               <TabsContent value="privat" className="mt-0">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                  {privatPackages.map((pkg) => (
-                    <PricingCard
-                      key={pkg.slug}
-                      package={pkg}
-                      isYearly={isYearly}
-                      onCTAClick={() => handleCTAClick(pkg)}
-                      onDetailsClick={() => setSelectedPackage(pkg)}
-                      onConsultationClick={handleConsultation}
-                    />
-                  ))}
-                </div>
+                {privatPackages.length === 0 ? (
+                  <div className="text-center py-12">
+                    <p className="text-muted-foreground">Keine Pakete verfügbar.</p>
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {privatPackages.map((pkg) => (
+                      <PricingCard
+                        key={pkg.slug}
+                        package={pkg}
+                        isYearly={isYearly}
+                        onCTAClick={() => handleCTAClick(pkg)}
+                        onDetailsClick={() => setSelectedPackage(pkg)}
+                        onConsultationClick={handleConsultation}
+                      />
+                    ))}
+                  </div>
+                )}
               </TabsContent>
 
               {/* KMU Packages */}
               <TabsContent value="kmu" className="mt-0">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                  {kmuPackages.map((pkg) => (
-                    <PricingCard
-                      key={pkg.slug}
-                      package={pkg}
-                      isYearly={isYearly}
-                      onCTAClick={() => handleCTAClick(pkg)}
-                      onDetailsClick={() => setSelectedPackage(pkg)}
-                      onConsultationClick={handleConsultation}
-                    />
-                  ))}
-                </div>
+                {kmuPackages.length === 0 ? (
+                  <div className="text-center py-12">
+                    <p className="text-muted-foreground">Keine Pakete verfügbar.</p>
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {kmuPackages.map((pkg) => (
+                      <PricingCard
+                        key={pkg.slug}
+                        package={pkg}
+                        isYearly={isYearly}
+                        onCTAClick={() => handleCTAClick(pkg)}
+                        onDetailsClick={() => setSelectedPackage(pkg)}
+                        onConsultationClick={handleConsultation}
+                      />
+                    ))}
+                  </div>
+                )}
               </TabsContent>
             </Tabs>
           </div>
