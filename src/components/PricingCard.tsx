@@ -31,7 +31,7 @@ const PricingCard = ({
   const dataCheckout = `${segment}-${planName}-${billingCycle}`;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-card border border-border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 h-full min-h-[720px] flex flex-col">
+    <div className="relative overflow-hidden rounded-2xl bg-card border border-border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 h-full min-h-[600px] flex flex-col">
       <div className="p-6 flex-1 flex flex-col">
         {/* Badge */}
         <div className="h-8 flex items-center justify-center mb-4">
@@ -72,7 +72,7 @@ const PricingCard = ({
           
           {/* Tax Note */}
           <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
-            {pkg.taxNote}
+            Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.
           </p>
           
           {/* Promo Space - Reserve space for consistency */}
@@ -109,32 +109,21 @@ const PricingCard = ({
           </button>
         </div>
         
-        {/* Secondary CTA */}
-        <div className="mb-4">
-          <button 
-            onClick={onConsultationClick}
-            className="w-full h-10 text-primary hover:text-primary/80 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
-          >
-            Kostenlose Erstberatung
-          </button>
-        </div>
         
         {/* Details Button */}
         <div className="mb-4">
           <button 
             onClick={onDetailsClick}
-            className="w-full h-8 text-muted-foreground hover:text-foreground text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
+            className="w-full h-10 text-primary hover:text-primary/80 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
           >
             Details zum Plan
           </button>
         </div>
         
-        {/* Primary CTA Microcopy */}
-        <div className="text-xs text-muted-foreground text-center leading-relaxed mb-4">
-          Monatlich kündbar. Verwaltung im Kundenportal. Kein Umsatzsteuerausweis gem. § 19 UStG.
+        {/* Footer Note */}
+        <div className="text-xs text-muted-foreground text-center leading-relaxed border-t border-border pt-3">
+          Fernzugriff nur nach Einwilligung; 2-Faktor-Schutz aktiv.
         </div>
-        
-        {/* Footer Note - remove old one since we moved it up */}
       </div>
     </div>
   );
