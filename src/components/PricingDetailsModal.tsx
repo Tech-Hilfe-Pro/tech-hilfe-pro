@@ -113,8 +113,8 @@ const PricingDetailsModal = ({ package: pkg, isOpen, onClose }: PricingDetailsMo
             </div>
             <p className="text-xs text-muted-foreground mt-3">
               {pkg.segment === 'privat' 
-                ? 'SLA-Zeiten gelten werktags (Mo-Fr), außer bei Familie+ Paket (auch Sa)'
-                : 'SLA-Zeiten gelten werktags (Mo-Fr), bei 360° auch Notfallnummer 24/7'
+                ? 'SLA-Zeiten gelten werktags (Mo-Fr), außer bei Familie+ Paket (auch Sa). Details siehe AGB.'
+                : 'SLA-Zeiten gelten werktags (Mo-Fr), bei 360° auch Notfallnummer 24/7. Details siehe AGB.'
               }
             </p>
           </div>

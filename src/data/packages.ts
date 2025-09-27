@@ -219,13 +219,14 @@ export const packages: Package[] = [
       'Sicherheits-Baseline (AV/Firewall verwaltet)',
       'Fernwartung DSGVO-konform (2-Faktor)',
       'Halbjährlicher vCIO-Check (30 Min.)',
-      'Unbegrenzter Remote-Support (fairer Gebrauch)'
+      'Unbegrenzter Remote-Support (fairer Gebrauch)',
+      '1 Vor-Ort-Termin nach 12 Monaten inklusive'
     ],
     notIncluded: [
-      'Vor-Ort-Einsätze',
       'Projektarbeiten',
-      'Spezial-Software',
-      'Hardware & Ersatzteile',
+      'Hardware & Spezialsoftware',
+      'Zusätzliche Vor-Ort-Einsätze (vor 12 Monaten)',
+      '24/7-Support',
       'Express-Support',
       'Erweiterte Security-Tools'
     ],
@@ -273,19 +274,18 @@ export const packages: Package[] = [
       'Verwaltetes Cloud-Backup & Berichte'
     ],
     included: [
-      'Alles aus Essential',
+      'Alles aus Essential (ohne Vor-Ort nach 12 Mon.)',
       'Reaktionszeit < 4 Std. (Werktage)',
-      '1 Vor-Ort-Termin pro Quartal inklusive',
       'Verwaltetes Cloud-Backup (100 GB pro Gerät)',
       'Quartalsbericht & Roadmap-Empfehlungen',
-      'Priorisierter Support'
+      'Priorisierter Support',
+      '1 Vor-Ort-Termin nach 8 Monaten inklusive'
     ],
     notIncluded: [
-      'Zusätzliche Vor-Ort-Einsätze',
       'Projektarbeiten',
-      'Hardware/Teile',
-      '24/7-Notfall-Support',
-      'Erweiterte Security-Tools'
+      'Hardware & Spezialsoftware',
+      'Zusätzliche Vor-Ort-Einsätze (vor 8 Monaten)',
+      '24/7-Support'
     ],
     slaMatrix: [
       {
@@ -331,16 +331,16 @@ export const packages: Package[] = [
       'Erweiterte Security & Netzwerk-Optimierung'
     ],
     included: [
-      'Alles aus Smart',
+      'Alles aus Smart (ohne Vor-Ort nach 8 Mon.)',
       'Priorisierte Reaktion + Notfallnummer 24/7',
-      'Bis zu 3 Vor-Ort-Einsätze/Jahr inklusive',
       'Erweitertes Security-Paket (EDR/Anti-Phishing)',
       'Netzwerk-/WLAN-Optimierung standortweit',
-      'Persönlicher Ansprechpartner'
+      'Persönlicher Ansprechpartner',
+      'Bis zu 3 Vor-Ort-Termine, der erste nach 4 Monaten inklusive'
     ],
     notIncluded: [
-      'Projekt-Rollouts außerhalb des Umfangs',
-      'Hardware & Spezialsoftware',
+      'Projektarbeiten',
+      'Hardware & Spezialsoftware', 
       'Zusätzliche Vor-Ort-Einsätze (über 3 hinaus)',
       'Schulungen (separat buchbar)'
     ],
