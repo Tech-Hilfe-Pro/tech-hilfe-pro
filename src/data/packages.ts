@@ -30,6 +30,7 @@ export const packages: Package[] = [
     monthlyPrice: 29,
     yearlyPrice: 25, // 15% Rabatt
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
+    badge: 'Bester Gegenwert',
     cta: 'Kostenlose Erstberatung',
     keyDifferences: [
       'Standard-SLA: Reaktion bis zum nächsten Werktag',
@@ -146,7 +147,6 @@ export const packages: Package[] = [
     monthlyPrice: 99,
     yearlyPrice: 84, // 15% Rabatt
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
-    badge: 'Bester Gegenwert',
     cta: 'Kostenlose Erstberatung',
     keyDifferences: [
       'Premium-SLA: 24/7-Notfallnummer verfügbar',

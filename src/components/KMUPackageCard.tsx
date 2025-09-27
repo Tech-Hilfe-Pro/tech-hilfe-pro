@@ -22,6 +22,8 @@ const KMUPackageCard = ({ package: pkg, isYearly, onCTAClick, onDetailsClick }: 
             <span className={`px-4 py-1 rounded-full text-sm font-medium shadow-md ${
               pkg.badge === 'Beliebteste Wahl' 
                 ? 'bg-gradient-to-r from-primary to-primary/80 text-primary-foreground'
+                : pkg.badge === 'Bester Gegenwert'
+                ? 'bg-gradient-to-r from-accent to-accent/80 text-accent-foreground'
                 : 'bg-gradient-to-r from-secondary to-secondary/80 text-secondary-foreground'
             }`}>
               {pkg.badge}
@@ -49,17 +51,21 @@ const KMUPackageCard = ({ package: pkg, isYearly, onCTAClick, onDetailsClick }: 
             <div className="text-sm text-muted-foreground">
               {isYearly ? 'pro Monat (jährlich)' : 'pro Monat'}
             </div>
-            {isYearly && savings > 0 && (
-              <div className="text-sm text-green-600 font-medium mt-1">
-                {savings}% Ersparnis
-              </div>
-            )}
           </div>
           
           {/* Tax Note */}
           <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
-            {pkg.taxNote}
+            Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.
           </p>
+          
+          {/* Promo Space - Reserve space for consistency */}
+          <div className="h-5 mb-2">
+            {isYearly && savings > 0 && (
+              <div className="text-sm text-green-600 font-medium">
+                15% Rabatt bei jährlicher Zahlung
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Key Differences */}
@@ -93,6 +99,11 @@ const KMUPackageCard = ({ package: pkg, isYearly, onCTAClick, onDetailsClick }: 
           >
             Details zum Plan
           </button>
+        </div>
+        
+        {/* Footer Note */}
+        <div className="text-xs text-muted-foreground text-center leading-relaxed border-t border-border pt-3">
+          Fernzugriff nur nach Einwilligung; 2-Faktor-Schutz aktiv.
         </div>
       </div>
     </div>
