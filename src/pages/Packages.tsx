@@ -101,7 +101,10 @@ const Packages = () => {
                     Für Privat
                   </TabsTrigger>
                   <TabsTrigger value="kmu" className="rounded-lg">
-                    Für Unternehmen
+                    <div className="flex flex-col items-center">
+                      <span>Für Unternehmen</span>
+                      <span className="text-xs text-muted-foreground font-normal">(KMU)</span>
+                    </div>
                   </TabsTrigger>
                 </TabsList>
               </div>
