@@ -78,15 +78,14 @@ const PricingTable = () => {
           id={`${activeSegment}-packages`}
           role="tabpanel"
           aria-labelledby={`${activeSegment}-tab`}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 md:items-stretch"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
         >
           {currentPackages.map((pkg) => (
-            <div key={pkg.slug} className="flex">
-              <PackageCard
-                package={pkg}
-                onCTAClick={activeSegment === 'privat' ? handleConsultation : handleConsultation}
-              />
-            </div>
+            <PackageCard
+              key={pkg.slug}
+              package={pkg}
+              onCTAClick={activeSegment === 'privat' ? handleConsultation : handleConsultation}
+            />
           ))}
         </div>
 

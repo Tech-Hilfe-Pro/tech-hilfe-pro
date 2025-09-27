@@ -5,7 +5,7 @@ export type Package = {
   subtitle: string;   // kurze Nutzenzeile unter dem Titel
   price: string;      // z.B. "19 € / Monat"
   taxNote: string;    // §19 UStG + Kündigung
-  badge?: 'Empfohlen' | '—';
+  badge?: 'Bester Gegenwert' | 'Beliebteste Wahl';
   promo?: string;     // z.B. "15% Rabatt bei jährlicher Zahlung"
   cta: string;        // Button-Text
   bullets: string[];  // 5–6 Leistungen
@@ -21,7 +21,7 @@ export const packages: Package[] = [
     subtitle: 'Persönliche IT-Hilfe für Einzelnutzer',
     price: '9 € / Monat',
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
-    badge: '—',
+    badge: 'Bester Gegenwert',
     promo: '15% Rabatt bei jährlicher Zahlung',
     cta: 'Kostenlose Erstberatung',
     bullets: [
@@ -40,7 +40,7 @@ export const packages: Package[] = [
     subtitle: 'Komplette IT-Betreuung für Ihr Zuhause',
     price: '19 € / Monat',
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
-    badge: 'Empfohlen',
+    badge: 'Beliebteste Wahl',
     promo: '15% Rabatt bei jährlicher Zahlung',
     cta: 'Kostenlose Erstberatung',
     bullets: [
@@ -60,7 +60,6 @@ export const packages: Package[] = [
     subtitle: 'Rundum-Schutz & Proaktiv-Service für Familien',
     price: '29 € / Monat',
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
-    badge: '—',
     promo: '15% Rabatt bei jährlicher Zahlung',
     cta: 'Kostenlose Erstberatung',
     bullets: [
@@ -82,7 +81,7 @@ export const packages: Package[] = [
     subtitle: 'Stabile Basis für 1–10 Mitarbeitende',
     price: 'ab 29 € / Monat je Arbeitsplatz',
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
-    badge: '—',
+    badge: 'Bester Gegenwert',
     promo: '15% Rabatt bei jährlicher Zahlung',
     cta: 'Kostenfreie Erstberatung buchen',
     bullets: [
@@ -101,7 +100,7 @@ export const packages: Package[] = [
     subtitle: 'Proaktive Betreuung mit Vor-Ort-Leistung',
     price: 'ab 59 € / Monat je Arbeitsplatz',
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
-    badge: 'Empfohlen',
+    badge: 'Beliebteste Wahl',
     promo: '15% Rabatt bei jährlicher Zahlung',
     cta: 'Kostenfreie Erstberatung buchen',
     bullets: [
@@ -120,7 +119,7 @@ export const packages: Package[] = [
     subtitle: 'Rundum-Sorglos für Micro-Unternehmen',
     price: 'ab 99 € / Monat je Arbeitsplatz',
     taxNote: 'Kein Umsatzsteuerausweis gem. § 19 UStG. Monatlich kündbar.',
-    badge: '—',
+    
     promo: '15% Rabatt bei jährlicher Zahlung',
     cta: 'Kostenfreie Erstberatung buchen',
     bullets: [

@@ -7,21 +7,20 @@ interface PackageCardProps {
 }
 
 const PackageCard = ({ package: pkg, onCTAClick }: PackageCardProps) => {
-  const isRecommended = pkg.badge === 'Empfohlen';
+  const hasBadge = !!pkg.badge;
 
   return (
-    <div className={`relative overflow-hidden rounded-2xl bg-card border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 h-full ${
-      isRecommended ? 'border-primary shadow-md' : 'border-border shadow-sm'
-    }`}>
-      {isRecommended && (
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-          <span className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-4 py-1 rounded-full text-sm font-medium shadow-md">
-            {pkg.badge}
-          </span>
+    <div className="relative overflow-hidden rounded-2xl bg-card border border-border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 h-full min-h-[600px] flex flex-col">
+      <div className="p-6 flex-1 flex flex-col">
+        {/* Badge */}
+        <div className="h-8 flex items-center justify-center mb-4">
+          {hasBadge && (
+            <span className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-4 py-1 rounded-full text-sm font-medium shadow-md">
+              {pkg.badge}
+            </span>
+          )}
         </div>
-      )}
 
-      <div className={`p-6 h-full flex flex-col ${isRecommended ? 'pt-8' : 'pt-6'}`}>
         {/* Header */}
         <div className="text-center mb-6">
           <h3 className="text-xl font-semibold text-foreground mb-2">
@@ -55,7 +54,7 @@ const PackageCard = ({ package: pkg, onCTAClick }: PackageCardProps) => {
           </div>
         </div>
 
-        {/* Features */}
+        {/* Features - Takes remaining space */}
         <div className="flex-1 mb-6">
           <ul className="space-y-3">
             {pkg.bullets.map((bullet, index) => (
@@ -68,29 +67,27 @@ const PackageCard = ({ package: pkg, onCTAClick }: PackageCardProps) => {
         </div>
         
         {/* CTA Button - Fixed at bottom */}
-        <div className="mt-auto">
+        <div className="mt-auto mb-4">
           <button 
             onClick={onCTAClick}
-            className="btn-hero w-full mb-4 h-12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="btn-hero w-full h-12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             {pkg.cta}
           </button>
         </div>
         
-        {/* Not Included */}
-        {pkg.notIncluded && (
-          <div className="border-t border-border pt-4">
-            <p className="text-xs text-muted-foreground mb-2 font-medium">
-              Nicht enthalten / optional:
-            </p>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              {pkg.notIncluded}
-            </p>
-            <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
-              Fernzugriff nur nach Einwilligung; 2-Faktor-Schutz aktiv.
-            </p>
-          </div>
-        )}
+        {/* Footer - Always same height */}
+        <div className="border-t border-border pt-4 min-h-[80px]">
+          <p className="text-xs text-muted-foreground mb-2 font-medium">
+            Nicht enthalten / optional:
+          </p>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            {pkg.notIncluded || 'Alle Kernleistungen enthalten'}
+          </p>
+          <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+            Fernzugriff nur nach Einwilligung; 2-Faktor-Schutz aktiv.
+          </p>
+        </div>
       </div>
     </div>
   );
