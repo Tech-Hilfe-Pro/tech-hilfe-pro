@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import WhatsAppIcon from "@/assets/whatsapp.svg";
+import { ServicesDropdown } from "./ServicesDropdown";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,12 +12,10 @@ const Header = () => {
   const scrollTimeoutRef = useRef<NodeJS.Timeout>();
 
   const navigation = [
-    { name: "Startseite", href: "/" },
-    { name: "Vorteile", href: "/vorteile" },
-    { name: "Über uns", href: "/about" },
+    { name: "Start", href: "/" },
+    { name: "Pläne", href: "/plans" },
+    { name: "Einmalige Hilfe", href: "/einmalige-hilfe" },
     { name: "Kontakt", href: "/kontakt" },
-    { name: "Impressum", href: "/impressum" },
-    { name: "AGB", href: "/agb" },
   ];
 
   const closeMenu = useCallback(() => {
@@ -142,6 +141,7 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
+            <ServicesDropdown />
           </nav>
 
           {/* CTA Buttons */}
@@ -200,7 +200,21 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <div className="px-3 py-2 space-y-2">
+              
+              {/* Mobile Services Section */}
+              <div className="px-3 py-2">
+                <div className="text-sm font-medium text-muted-foreground mb-2">Services</div>
+                <div className="space-y-1">
+                  <button className="block w-full text-left px-3 py-2 rounded-lg text-sm text-foreground hover:bg-neutral-50" onClick={() => { document.querySelector('#internet-wlan')?.scrollIntoView({ behavior: 'smooth' }); closeMenu(); }}>Internet & WLAN</button>
+                  <button className="block w-full text-left px-3 py-2 rounded-lg text-sm text-foreground hover:bg-neutral-50" onClick={() => { document.querySelector('#pc-mac')?.scrollIntoView({ behavior: 'smooth' }); closeMenu(); }}>PC & Mac</button>
+                  <button className="block w-full text-left px-3 py-2 rounded-lg text-sm text-foreground hover:bg-neutral-50" onClick={() => { document.querySelector('#drucker-scanner')?.scrollIntoView({ behavior: 'smooth' }); closeMenu(); }}>Drucker & Scanner</button>
+                  <button className="block w-full text-left px-3 py-2 rounded-lg text-sm text-foreground hover:bg-neutral-50" onClick={() => { document.querySelector('#smart-home')?.scrollIntoView({ behavior: 'smooth' }); closeMenu(); }}>Smart Home</button>
+                  <button className="block w-full text-left px-3 py-2 rounded-lg text-sm text-foreground hover:bg-neutral-50" onClick={() => { document.querySelector('#sicherheit-backup')?.scrollIntoView({ behavior: 'smooth' }); closeMenu(); }}>Sicherheit & Backup</button>
+                  <button className="block w-full text-left px-3 py-2 rounded-lg text-sm text-foreground hover:bg-neutral-50" onClick={() => { document.querySelector('#mobilgeraete')?.scrollIntoView({ behavior: 'smooth' }); closeMenu(); }}>Mobilgeräte</button>
+                </div>
+              </div>
+              
+              <div className="px-3 py-2 space-y-2 border-t border-border mt-2 pt-2">
                 <a
                   href="tel:+4915565029989"
                   className="flex items-center gap-2 text-foreground hover:text-accent"
