@@ -98,10 +98,10 @@ const Packages = () => {
               <div className="flex justify-center mb-8">
                 <TabsList className="grid w-full max-w-md grid-cols-2 rounded-xl">
                   <TabsTrigger value="privat" className="rounded-lg">
-                    Privatkunden
+                    Für Privat
                   </TabsTrigger>
                   <TabsTrigger value="kmu" className="rounded-lg">
-                    Geschäftskunden (KMU)
+                    Für Unternehmen
                   </TabsTrigger>
                 </TabsList>
               </div>
