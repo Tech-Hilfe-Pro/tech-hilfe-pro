@@ -1,9 +1,9 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import BenefitsGrid from "@/components/BenefitsGrid";
 import PackagePreview from "@/components/PackagePreview";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -50,7 +50,23 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <BenefitsGrid />
+        
+        {/* Vorteile Teaser */}
+        <section className="py-16 bg-muted/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 className="text-2xl font-semibold mb-4">Unsere Vorteile auf einen Blick</h3>
+            <p className="text-muted-foreground mb-8">
+              Die wichtigsten Gründe, warum Tech Hilfe Pro passt.
+            </p>
+            <Link 
+              to="/vorteile" 
+              className="btn-hero"
+            >
+              Mehr erfahren
+            </Link>
+          </div>
+        </section>
+        
         <PackagePreview />
         <FAQ />
       </main>
