@@ -254,6 +254,36 @@ All colors MUST be HSL. Clean typography with Inter font family.
     @apply transition-all duration-200 hover:bg-[#128C7E] hover:shadow-lg hover:-translate-y-0.5;
   }
   
+  /* Custom range slider styling */
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(to right, hsl(var(--primary)) 0%, hsl(var(--primary)) 50%, #d1d5db 50%, #d1d5db 100%);
+    outline: none;
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: hsl(var(--primary));
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .slider::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: hsl(var(--primary));
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
   /* Safe area support for mobile devices */
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom);

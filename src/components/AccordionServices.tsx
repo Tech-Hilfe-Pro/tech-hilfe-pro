@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, Wifi, Monitor, Printer, Home, Shield, Smartphone } from "lucide-react";
+import { PricingWidget } from "./PricingWidget";
 
 const serviceCategories = [
   {
@@ -76,6 +77,11 @@ export const AccordionServices = () => {
               <span className="font-medium">Standard:</span> Remote ab 39 € / 30 Min, Vor-Ort 89 € / Std. • 
               <span className="font-medium text-primary"> Mitglied:</span> Vor-Ort 69 € / Termin (bis 60 Min); danach je angefangene 15 Min: 19 €
             </p>
+          </div>
+          
+          {/* Pricing Widget */}
+          <div className="mt-8">
+            <PricingWidget />
           </div>
         </div>
 
