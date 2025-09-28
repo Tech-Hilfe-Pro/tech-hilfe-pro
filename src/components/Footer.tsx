@@ -67,7 +67,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-accent" />
-                <span className="text-neutral-300">Köln & Umgebung</span>
+                <span className="text-neutral-300">Schirmerstr. 7, 50823 Köln, DE</span>
               </div>
               <a 
                 href="tel:+4915565029989"
@@ -77,12 +77,15 @@ const Footer = () => {
                 <span>+49 1556 5029989</span>
               </a>
               <a 
-                href="mailto:kontakt@techhilfepro.de"
+                href="mailto:info@techhilfepro.de"
                 className="flex items-center gap-3 hover:text-accent transition-colors"
               >
                 <Mail className="h-5 w-5 text-accent" />
-                <span>kontakt@techhilfepro.de</span>
+                <span>info@techhilfepro.de</span>
               </a>
+              <div className="text-neutral-400 mt-4">
+                <p>Keine Umsatzsteuer gem. §19 UStG (Kleinunternehmer)</p>
+              </div>
             </div>
           </div>
 

@@ -75,8 +75,94 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      {/* JSON-LD Product data for plans */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context":"https://schema.org",
+          "@type":"Product",
+          "name":"Privat-Mitgliedschaft",
+          "brand":"Tech Hilfe Pro",
+          "description":"Unbegrenzter Remote-Support (Fair-Use 90 Min/Monat), 1 Vor-Ort-Termin/Jahr nach 60 Tagen, bis 3 Geräte. Keine Umsatzsteuer gem. §19 UStG.",
+          "offers":{
+            "@type":"Offer",
+            "price":"12.90",
+            "priceCurrency":"EUR",
+            "availability":"https://schema.org/InStock",
+            "url":"https://techhilfepro.de/"
+          }
+        })
+      }} />
+      
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context":"https://schema.org",
+          "@type":"Product",
+          "name":"Business (KMU) - Mitgliedschaft",
+          "brand":"Tech Hilfe Pro",
+          "description":"SLA Antwort ≤ 4 Std., Fair-Use 180 Min/Monat, 2 Vor-Ort-Termine/Jahr (30/90 Tage), bis 10 Geräte/5 Nutzer. Keine Umsatzsteuer gem. §19 UStG.",
+          "offers":{
+            "@type":"Offer",
+            "price":"39.90",
+            "priceCurrency":"EUR",
+            "availability":"https://schema.org/InStock",
+            "url":"https://techhilfepro.de/"
+          }
+        })
+      }} />
+
+      {/* FAQ JSON-LD */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Kann ich monatlich kündigen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja, alle unsere Mitgliedschaften sind monatlich kündbar ohne Kündigungsfristen."
+              }
+            },
+            {
+              "@type": "Question", 
+              "name": "Gibt es ein Widerrufsrecht?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sie haben 14 Tage Widerrufsrecht. Bei sofortigem Leistungsbeginn berechnen wir anteilig den Wertersatz."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Erfolgt Fernzugriff ohne meine Zustimmung?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nein, Fernzugriff erfolgt nur mit Ihrer ausdrücklichen Einwilligung per Fernwartungssoftware."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "In welchem Gebiet bieten Sie Vor-Ort-Service?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Vor-Ort-Service bieten wir in Köln, Neuss und Umgebung. Remote-Support ist deutschlandweit verfügbar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Warum wird keine Umsatzsteuer ausgewiesen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Als Kleinunternehmer gemäß §19 UStG weisen wir keine Umsatzsteuer aus."
+              }
+            }
+          ]
+        })
+      }} />
+
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <main>
         {/* Hero Section */}
@@ -177,7 +263,8 @@ const Index = () => {
         isOpen={isLegalModalOpen}
         onClose={() => setIsLegalModalOpen(false)}
       />
-    </div>
+      </div>
+    </>
   );
 };
 

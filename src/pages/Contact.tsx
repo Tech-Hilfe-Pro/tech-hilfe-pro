@@ -268,26 +268,52 @@ const Contact = () => {
                 
                 <div className="space-y-6">
                   <div className="bg-white border border-border rounded-xl p-6">
-                    <h3 className="font-semibold mb-3 text-foreground">Telefon & E-Mail</h3>
+                    <h3 className="font-semibold mb-3 text-foreground">Kontaktdaten</h3>
                     <div className="space-y-2 text-muted-foreground">
-                      <p>+49 1556 5029989</p>
-                      <p>kontakt@techhilfepro.de</p>
+                      <p><strong>Tech Hilfe Pro</strong></p>
+                      <p>Inhaber: Jose Carlos Marin Lache</p>
+                      <p>Schirmerstr. 7, 50823 Köln, DE</p>
+                      <p>
+                        <a href="tel:+4915565029989" className="text-accent hover:underline">
+                          +49 1556 5029989
+                        </a>
+                      </p>
+                      <p>
+                        <a href="mailto:info@techhilfepro.de" className="text-accent hover:underline">
+                          info@techhilfepro.de
+                        </a>
+                      </p>
                     </div>
                   </div>
 
                   <div className="bg-white border border-border rounded-xl p-6">
                     <h3 className="font-semibold mb-3 text-foreground">Öffnungszeiten</h3>
                     <div className="space-y-2 text-muted-foreground">
-                      <p>Mo–Fr: 9–18 Uhr</p>
-                      <p>Sa/So: Nach Vereinbarung</p>
+                      <p>Mo–Fr: 09:00–18:00 Uhr</p>
+                      <p className="text-sm text-accent">Termin oft in 24–48 Std. verfügbar</p>
                     </div>
                   </div>
 
                   <div className="bg-white border border-border rounded-xl p-6">
                     <h3 className="font-semibold mb-3 text-foreground">Servicegebiet</h3>
                     <div className="space-y-2 text-muted-foreground">
-                      <p>Köln & Umgebung (Vor-Ort)</p>
+                      <p>Köln, Neuss & Umgebung (Vor-Ort)</p>
                       <p>Remote-Support deutschlandweit</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-white border border-border rounded-xl p-6">
+                    <h3 className="font-semibold mb-3 text-foreground">Soforthilfe</h3>
+                    <div className="space-y-3">
+                      <p className="text-sm text-muted-foreground">
+                        Dringende IT-Probleme? Kontaktieren Sie uns direkt.
+                      </p>
+                      <button
+                        onClick={() => window.open('tel:+4915565029989')}
+                        className="btn-hero w-full"
+                      >
+                        Soforthilfe anfragen
+                      </button>
                     </div>
                   </div>
 
