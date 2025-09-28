@@ -69,20 +69,40 @@ const Footer = () => {
                 <MapPin className="h-5 w-5 text-accent" />
                 <span className="text-neutral-300">Schirmerstr. 7, 50823 Köln, DE</span>
               </div>
-              <a 
-                href="tel:+4915565029989"
-                className="flex items-center gap-3 hover:text-accent transition-colors"
-              >
-                <Phone className="h-5 w-5 text-accent" />
-                <span>+49 1556 5029989</span>
-              </a>
-              <a 
-                href="mailto:info@techhilfepro.de"
-                className="flex items-center gap-3 hover:text-accent transition-colors"
-              >
-                <Mail className="h-5 w-5 text-accent" />
-                <span>info@techhilfepro.de</span>
-              </a>
+              <div className="flex items-center gap-4">
+                <a 
+                  href="tel:+4915565029989"
+                  aria-label="Anrufen"
+                  className="p-2 rounded-lg hover:bg-neutral-800 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  <img src="/icons/phone.svg" alt="" className="h-5 w-5 text-accent" />
+                  <span className="sr-only">Anrufen</span>
+                </a>
+                <a 
+                  href="mailto:info@techhilfepro.de"
+                  aria-label="E-Mail schreiben"
+                  className="p-2 rounded-lg hover:bg-neutral-800 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  <img src="/icons/mail.svg" alt="" className="h-5 w-5 text-accent" />
+                  <span className="sr-only">E-Mail schreiben</span>
+                </a>
+                <a 
+                  href="https://wa.me/4915565029989?text=Hallo%20Tech%20Hilfe%20Pro"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleWhatsApp();
+                  }}
+                  aria-label="WhatsApp öffnen"
+                  className="p-2 rounded-lg hover:bg-neutral-800 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  <img src="/icons/whatsapp.svg" alt="" className="h-5 w-5 text-[#25d366]" />
+                  <span className="sr-only">WhatsApp öffnen</span>
+                </a>
+              </div>
+              <div className="space-y-2 text-neutral-300 mt-4">
+                <p><a href="tel:+4915565029989" className="hover:text-accent transition-colors">+49 15565029989</a></p>
+                <p><a href="mailto:info@techhilfepro.de" className="hover:text-accent transition-colors">info@techhilfepro.de</a></p>
+              </div>
               <div className="text-neutral-400 mt-4">
                 <p>Keine Umsatzsteuer gem. §19 UStG (Kleinunternehmer)</p>
               </div>

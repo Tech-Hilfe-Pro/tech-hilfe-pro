@@ -97,9 +97,9 @@ const Contact = () => {
               Zurück zur Startseite
             </Link>
             
-            <h1 className="text-hero mb-4">Kontakt</h1>
+            <h1 className="text-hero mb-4">Kontakt & Termin</h1>
             <p className="text-subtitle">
-              Wir melden uns schnell – meist am selben Werktag.
+              Schneller Support für Ihre IT-Probleme
             </p>
           </div>
         </section>
@@ -107,6 +107,70 @@ const Contact = () => {
         {/* Content */}
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* NAP Block */}
+            <div className="bg-white border border-border rounded-2xl p-8 mb-12">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h2 className="text-2xl font-semibold mb-6 text-foreground">Tech Hilfe Pro</h2>
+                  <div className="space-y-3 text-foreground">
+                    <p><strong>Jose Carlos Marin Lache</strong></p>
+                    <p>Schirmerstr. 7, 50823 Köln</p>
+                    <p>Telefon: <a href="tel:+4915565029989" className="text-accent hover:underline">+49 15565029989</a></p>
+                    <p>E-Mail: <a href="mailto:info@techhilfepro.de" className="text-accent hover:underline">info@techhilfepro.de</a></p>
+                    <div className="pt-4">
+                      <p className="font-medium text-foreground">Öffnungszeiten:</p>
+                      <p className="text-muted-foreground">Mo–Fr 09:00–18:00</p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="font-medium text-foreground">Einsatzgebiet:</p>
+                      <p className="text-muted-foreground">Köln, Neuss & Umgebung</p>
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Verfügbarkeit:</p>
+                      <p className="text-accent">Termin oft in 24–48 Std.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* CTA-Zeile */}
+              <div className="border-t border-border mt-8 pt-8">
+                <div className="flex items-center justify-center gap-6">
+                  <a 
+                    href="tel:+4915565029989" 
+                    aria-label="Anrufen"
+                    className="p-3 rounded-lg border border-border hover:bg-neutral-50 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  >
+                    <img src="/icons/phone.svg" alt="" className="h-6 w-6 text-foreground" />
+                    <span className="sr-only">Anrufen</span>
+                  </a>
+                  <a 
+                    href="mailto:info@techhilfepro.de" 
+                    aria-label="E-Mail schreiben"
+                    className="p-3 rounded-lg border border-border hover:bg-neutral-50 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  >
+                    <img src="/icons/mail.svg" alt="" className="h-6 w-6 text-foreground" />
+                    <span className="sr-only">E-Mail schreiben</span>
+                  </a>
+                  <a 
+                    href="https://wa.me/4915565029989?text=Hallo%20Tech%20Hilfe%20Pro" 
+                    aria-label="WhatsApp öffnen"
+                    className="p-3 rounded-lg border border-border hover:bg-neutral-50 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  >
+                    <img src="/icons/whatsapp.svg" alt="" className="h-6 w-6 text-[#25d366]" />
+                    <span className="sr-only">WhatsApp öffnen</span>
+                  </a>
+                </div>
+                <p className="text-center text-sm text-muted-foreground mt-4">
+                  Keine Umsatzsteuer gem. §19 UStG (Kleinunternehmer)
+                </p>
+              </div>
+            </div>
+
             <div className="grid lg:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-2xl font-semibold mb-6 text-foreground">Nachricht senden</h2>

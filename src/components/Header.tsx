@@ -143,31 +143,36 @@ const Header = () => {
             <ServicesDropdown />
           </nav>
 
-          {/* CTA Buttons */}
+          {/* CTA Icons */}
           <div className="hidden md:flex items-center space-x-4">
             <a
               href="tel:+4915565029989"
-              className="inline-flex items-center gap-2 text-sm text-foreground hover:text-accent transition-colors"
-              aria-label="Anrufen: +49 1556 5029989"
+              aria-label="Anrufen"
+              className="p-2 rounded-lg hover:bg-neutral-100 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
-              <Phone className="h-4 w-4" />
-              +49 1556 5029989
+              <img src="/icons/phone.svg" alt="" className="h-5 w-5 text-foreground" />
+              <span className="sr-only">Anrufen</span>
             </a>
             <a
               href="mailto:info@techhilfepro.de"
-              className="inline-flex items-center gap-2 text-sm text-foreground hover:text-accent transition-colors"
-              aria-label="E-Mail senden"
+              aria-label="E-Mail schreiben"
+              className="p-2 rounded-lg hover:bg-neutral-100 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
-              info@techhilfepro.de
+              <img src="/icons/mail.svg" alt="" className="h-5 w-5 text-foreground" />
+              <span className="sr-only">E-Mail schreiben</span>
             </a>
-            <button
-              onClick={handleWhatsApp}
-              className="btn-whatsapp text-sm py-2 px-4"
-              aria-label="Chat auf WhatsApp starten"
+            <a
+              href="https://wa.me/4915565029989?text=Hallo%20Tech%20Hilfe%20Pro"
+              onClick={(e) => {
+                e.preventDefault();
+                handleWhatsApp();
+              }}
+              aria-label="WhatsApp öffnen"
+              className="p-2 rounded-lg hover:bg-neutral-100 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
-              <img src={WhatsAppIcon} alt="WhatsApp" className="h-4 w-4" />
-              WhatsApp
-            </button>
+              <img src="/icons/whatsapp.svg" alt="" className="h-5 w-5 text-[#25d366]" />
+              <span className="sr-only">WhatsApp öffnen</span>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -220,27 +225,40 @@ const Header = () => {
                 </div>
               </div>
               
-              <div className="px-3 py-2 space-y-2 border-t border-border mt-2 pt-2">
-                <a
-                  href="tel:+4915565029989"
-                  className="flex items-center gap-2 text-foreground hover:text-accent"
-                  aria-label="Anrufen"
-                  onClick={closeMenu}
-                >
-                  <Phone className="h-4 w-4" />
-                  +49 1556 5029989
-                </a>
-                <button
-                  onClick={() => {
-                    handleWhatsApp();
-                    closeMenu();
-                  }}
-                  className="btn-whatsapp w-full justify-center"
-                  aria-label="Chat auf WhatsApp starten"
-                >
-                  <img src={WhatsAppIcon} alt="WhatsApp" className="h-4 w-4" />
-                  WhatsApp Support
-                </button>
+              <div className="px-3 py-2 border-t border-border mt-2 pt-2">
+                <div className="flex items-center justify-center gap-4">
+                  <a
+                    href="tel:+4915565029989"
+                    aria-label="Anrufen"
+                    className="p-3 rounded-lg hover:bg-neutral-100 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    onClick={closeMenu}
+                  >
+                    <img src="/icons/phone.svg" alt="" className="h-6 w-6 text-foreground" />
+                    <span className="sr-only">Anrufen</span>
+                  </a>
+                  <a
+                    href="mailto:info@techhilfepro.de"
+                    aria-label="E-Mail schreiben"
+                    className="p-3 rounded-lg hover:bg-neutral-100 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    onClick={closeMenu}
+                  >
+                    <img src="/icons/mail.svg" alt="" className="h-6 w-6 text-foreground" />
+                    <span className="sr-only">E-Mail schreiben</span>
+                  </a>
+                  <a
+                    href="https://wa.me/4915565029989?text=Hallo%20Tech%20Hilfe%20Pro"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleWhatsApp();
+                      closeMenu();
+                    }}
+                    aria-label="WhatsApp öffnen"
+                    className="p-3 rounded-lg hover:bg-neutral-100 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  >
+                    <img src="/icons/whatsapp.svg" alt="" className="h-6 w-6 text-[#25d366]" />
+                    <span className="sr-only">WhatsApp öffnen</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

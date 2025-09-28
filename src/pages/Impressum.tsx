@@ -35,7 +35,7 @@ const Impressum = () => {
             
             <h1 className="text-hero mb-4">Impressum</h1>
             <p className="text-subtitle">
-              Angaben gemäß Telemediengesetz (TMG) und Medienstaatsvertrag (MStV)
+              Rechtliche Angaben gemäß deutschen Gesetzen
             </p>
           </div>
         </section>
@@ -46,47 +46,52 @@ const Impressum = () => {
             <div className="prose prose-lg max-w-none space-y-8">
               
               <div className="bg-white border border-border rounded-2xl p-8">
-                <h2 className="text-2xl font-semibold mb-6 text-foreground">Angaben gemäß § 5 TMG</h2>
+                <h2 className="text-2xl font-semibold mb-6 text-foreground">Diensteanbieter (§ 5 DDG)</h2>
                 <div className="text-foreground leading-relaxed">
                   <p className="mb-2"><strong>Tech Hilfe Pro</strong></p>
-                  <p className="mb-1">[Vor- und Nachname / Firmenname]</p>
-                  <p className="mb-1">[Anschrift: Straße Hausnummer]</p>
-                  <p className="mb-4">[PLZ Ort], Deutschland</p>
+                  <p className="mb-1">Inhaber: Jose Carlos Marin Lache</p>
+                  <p className="mb-1">Schirmerstr. 7</p>
+                  <p className="mb-4">50823 Köln, Deutschland</p>
                   
-                  <p className="mb-1">Telefon: [Telefonnummer]</p>
-                  <p className="mb-1">E-Mail: [E-Mail-Adresse]</p>
-                  <p className="mb-4">WhatsApp: [Nummer oder „Click-to-Chat"]</p>
-                  
-                  <p>USt-Status: Kleinunternehmer gemäß § 19 UStG, <strong>kein</strong> Ausweis von Umsatzsteuer.</p>
+                  <p className="mb-1">Telefon: <a href="tel:+4915565029989" className="text-accent hover:underline">+49 15565029989</a></p>
+                  <p className="mb-4">E-Mail: <a href="mailto:info@techhilfepro.de" className="text-accent hover:underline">info@techhilfepro.de</a></p>
                 </div>
               </div>
 
               <div className="bg-white border border-border rounded-2xl p-8">
-                <h2 className="text-2xl font-semibold mb-6 text-foreground">Vertretungsberechtigte Person</h2>
+                <h2 className="text-2xl font-semibold mb-6 text-foreground">Kleinunternehmer-Hinweis (§ 19 UStG)</h2>
                 <div className="text-foreground leading-relaxed">
-                  <p>[Name der verantwortlichen Person]</p>
+                  <p>Es erfolgt kein Umsatzsteuerausweis.</p>
                 </div>
               </div>
 
               <div className="bg-white border border-border rounded-2xl p-8">
-                <h2 className="text-2xl font-semibold mb-6 text-foreground">Verantwortlich i. S. d. § 18 Abs. 2 MStV</h2>
+                <h2 className="text-2xl font-semibold mb-6 text-foreground">Inhaltlich verantwortlich gem. § 18 Abs. 2 MStV</h2>
                 <div className="text-foreground leading-relaxed">
-                  <p>[Name, Anschrift wie oben]</p>
+                  <p>Jose Carlos Marin Lache, Anschrift wie oben.</p>
+                  <p className="text-sm text-muted-foreground mt-2">(Nur relevant, falls redaktionelle Inhalte vorliegen.)</p>
                 </div>
               </div>
 
               <div className="bg-white border border-border rounded-2xl p-8">
-                <h2 className="text-2xl font-semibold mb-6 text-foreground">EU-Streitschlichtung / Verbraucherstreitbeilegung</h2>
+                <h2 className="text-2xl font-semibold mb-6 text-foreground">Online-Streitbeilegung (Art. 14 Abs. 1 ODR-VO)</h2>
                 <div className="text-foreground leading-relaxed">
                   <p className="mb-4">
-                    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: 
-                    <a href="https://ec.europa.eu/consumers/odr/" className="text-primary hover:text-primary/80 underline ml-1" target="_blank" rel="noopener noreferrer">
-                      https://ec.europa.eu/consumers/odr/
+                    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
+                    <a href="https://ec.europa.eu/consumers/odr" className="text-accent hover:underline ml-1" target="_blank" rel="noopener noreferrer">
+                      https://ec.europa.eu/consumers/odr
                     </a>
                   </p>
                   <p>
-                    Wir sind <strong>nicht verpflichtet</strong> und <strong>nicht bereit</strong>, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+                    Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
                   </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-border rounded-2xl p-8">
+                <h2 className="text-2xl font-semibold mb-6 text-foreground">Kontaktwege</h2>
+                <div className="text-foreground leading-relaxed">
+                  <p>Telefonisch Mo–Fr 09:00–18:00, per E-Mail oder Terminvereinbarung über die Kontaktseite.</p>
                 </div>
               </div>
 
@@ -126,16 +131,11 @@ const Impressum = () => {
                 </div>
               </div>
 
-              {/* Contact Section */}
-              <div className="bg-muted rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 text-foreground">Kontakt</h3>
-                <p className="text-muted-foreground mb-4">
-                  Bei Fragen zu diesem Impressum oder rechtlichen Angelegenheiten können Sie uns kontaktieren:
+              {/* Footer Notice */}
+              <div className="text-center mt-8">
+                <p className="text-sm text-muted-foreground">
+                  Keine Umsatzsteuer gem. §19 UStG (Kleinunternehmer)
                 </p>
-                <div className="space-y-2 text-sm">
-                  <p className="text-foreground">E-Mail: kontakt@techhilfepro.de</p>
-                  <p className="text-foreground">Telefon: +49 1556 5029989</p>
-                </div>
               </div>
 
             </div>
