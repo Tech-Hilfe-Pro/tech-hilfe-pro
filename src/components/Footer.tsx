@@ -93,10 +93,36 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-neutral-400">
-              <li><Link to="/benefits/proaktive-betreuung" className="hover:text-white transition-colors">Proaktive Betreuung</Link></li>
-              <li><Link to="/benefits/schneller-support" className="hover:text-white transition-colors">Remote Support</Link></li>
-              <li><Link to="/benefits/sicherheit-und-updates" className="hover:text-white transition-colors">Sicherheit & Updates</Link></li>
-              <li><Link to="/pakete" className="hover:text-white transition-colors">Managed Services</Link></li>
+              <li>
+                <Link to="/services/proaktive-betreuung" className="hover:text-white transition-colors">
+                  Proaktive Betreuung
+                  <span className="block text-xs text-neutral-500">Präventive IT-Wartung statt Feuerlöschen</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/remote-support" className="hover:text-white transition-colors">
+                  Remote Support
+                  <span className="block text-xs text-neutral-500">Sofortige Hilfe ohne Anfahrt</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/sicherheit-updates" className="hover:text-white transition-colors">
+                  Sicherheit & Updates
+                  <span className="block text-xs text-neutral-500">Schutz vor Viren und Datenverlusten</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/managed-services" className="hover:text-white transition-colors">
+                  Managed Services
+                  <span className="block text-xs text-neutral-500">Rundum-Betreuung für Ihr Business</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/vor-ort" className="hover:text-white transition-colors">
+                  Vor-Ort-Service (Köln/Neuss)
+                  <span className="block text-xs text-neutral-500">Persönlicher Service in Ihrer Nähe</span>
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -106,18 +132,17 @@ const Footer = () => {
             <ul className="space-y-2 text-neutral-400">
               <li><Link to="/about" className="hover:text-white transition-colors">Über uns</Link></li>
               <li><Link to="/kontakt" className="hover:text-white transition-colors">Kontakt</Link></li>
+              <li><Link to="/einsatzgebiet" className="hover:text-white transition-colors">Einsatzgebiet</Link></li>
               <li><Link to="/pakete" className="hover:text-white transition-colors">Pakete & Preise</Link></li>
+              <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-neutral-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-neutral-400 text-sm">
-              © 2024 Tech Hilfe Pro. Alle Rechte vorbehalten.
-            </div>
-            <div className="flex gap-6 text-sm text-neutral-400">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+            <div className="flex flex-wrap gap-6 text-sm text-neutral-400">
               <Link to="/impressum" className="hover:text-white transition-colors">
                 Impressum
               </Link>
@@ -127,6 +152,23 @@ const Footer = () => {
               <Link to="/agb" className="hover:text-white transition-colors">
                 AGB
               </Link>
+              <Link to="/widerruf" className="hover:text-white transition-colors">
+                Widerruf
+              </Link>
+            </div>
+            <div className="text-neutral-400 text-sm">
+              <div className="mb-2">
+                <span className="font-medium">Tech Hilfe Pro</span> · 
+                <a href="tel:+4915565029989" className="hover:text-white transition-colors ml-1">
+                  Schirmerstr. 7, 50823 Köln · +49 1556 5029989
+                </a> · 
+                <a href="mailto:info@techhilfepro.de" className="hover:text-white transition-colors ml-1">
+                  info@techhilfepro.de
+                </a>
+              </div>
+              <div className="text-xs text-neutral-500">
+                Keine Umsatzsteuer gem. §19 UStG (Kleinunternehmer)
+              </div>
             </div>
           </div>
         </div>
