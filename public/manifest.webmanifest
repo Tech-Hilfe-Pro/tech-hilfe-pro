@@ -1,0 +1,43 @@
+{
+  "name": "Tech Hilfe Pro - IT-Service Köln",
+  "short_name": "Tech Hilfe Pro",
+  "description": "IT-Service Köln: Planbare Kosten, proaktiver Support per Telefon, WhatsApp & vor Ort. Tech Hilfe Pro - Ihr zuverlässiger Partner für Privat & KMU.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e40af",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/fh-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/fh-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "de",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "Kontakt",
+      "short_name": "Kontakt",
+      "description": "Direkter Kontakt zu Tech Hilfe Pro",
+      "url": "/kontakt",
+      "icons": [{"src": "/fh-logo.png", "sizes": "96x96"}]
+    },
+    {
+      "name": "Einmalige Hilfe",
+      "short_name": "Hilfe",
+      "description": "Einmalige IT-Hilfe anfragen",
+      "url": "/einmalige-hilfe",
+      "icons": [{"src": "/fh-logo.png", "sizes": "96x96"}]
+    }
+  ]
+}
