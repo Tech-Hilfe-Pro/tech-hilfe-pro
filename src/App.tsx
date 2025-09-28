@@ -13,6 +13,8 @@ import Datenschutz from "./pages/Datenschutz";
 import AGB from "./pages/AGB";
 import NotFound from "./pages/NotFound";
 import ServerError from "./pages/ServerError";
+import ITHilfeKoeln from "./pages/ITHilfeKoeln";
+import ComputerhilfeNeuss from "./pages/ComputerhilfeNeuss";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +36,8 @@ const App = () => (
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="/agb" element={<AGB />} />
           <Route path="/widerruf" element={<div>Widerruf page coming soon</div>} />
+          <Route path="/it-hilfe-koeln" element={<ITHilfeKoeln />} />
+          <Route path="/computerhilfe-neuss" element={<ComputerhilfeNeuss />} />
           <Route path="/500" element={<ServerError />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

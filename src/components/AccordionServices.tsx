@@ -119,6 +119,18 @@ export const AccordionServices = () => {
                         <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
                           Mitgliederpreis 69 €
                         </span>
+                        <a
+                          href="/it-hilfe-koeln"
+                          className="text-xs text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          IT-Hilfe Köln
+                        </a>
+                        <a
+                          href="/computerhilfe-neuss"
+                          className="text-xs text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          Computerhilfe Neuss
+                        </a>
                         <button
                           onClick={() => handleBookClick(category.id)}
                           className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"

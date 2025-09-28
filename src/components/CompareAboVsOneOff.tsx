@@ -1,3 +1,4 @@
+import React from "react";
 import { Check, X } from "lucide-react";
 
 const comparisonData = [
@@ -51,7 +52,7 @@ export const CompareAboVsOneOff = () => {
 
             {/* Rows */}
             {comparisonData.map((row, index) => (
-              <>
+              <React.Fragment key={index}>
                 <div className="p-4 border-t border-border">
                   <span className="text-sm font-medium text-foreground">{row.feature}</span>
                 </div>
@@ -67,7 +68,7 @@ export const CompareAboVsOneOff = () => {
                     <span className="text-sm text-muted-foreground">{row.oneOff}</span>
                   </div>
                 </div>
-              </>
+              </React.Fragment>
             ))}
           </div>
         </div>

@@ -132,7 +132,8 @@ const Footer = () => {
             <ul className="space-y-2 text-neutral-400">
               <li><Link to="/about" className="hover:text-white transition-colors">Über uns</Link></li>
               <li><Link to="/kontakt" className="hover:text-white transition-colors">Kontakt</Link></li>
-              <li><Link to="/einsatzgebiet" className="hover:text-white transition-colors">Einsatzgebiet</Link></li>
+              <li><Link to="/it-hilfe-koeln" className="hover:text-white transition-colors">IT-Hilfe Köln</Link></li>
+              <li><Link to="/computerhilfe-neuss" className="hover:text-white transition-colors">Computerhilfe Neuss</Link></li>
               <li><Link to="/pakete" className="hover:text-white transition-colors">Pakete & Preise</Link></li>
               <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
             </ul>
